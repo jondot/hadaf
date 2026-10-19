@@ -1,0 +1,52 @@
+# הגדרות העיתון — זה הקובץ שעורכים אחרי fork.
+# Newspaper preferences — this is the file you edit after forking.
+# Core editorial rules live in .claude/skills/editor/SKILL.md; change those only on purpose.
+
+[paper]
+name = "הדף"
+tagline = "עיתון יומי של עמוד אחד · עובדות, בלי רעש"
+language = "he"            # output language for everything in the issue
+direction = "rtl"          # "rtl" or "ltr"
+timezone = "Asia/Jerusalem"
+site_url = "https://jondot.github.io/hadaf"   # used for the RSS feed; leave "" if unknown
+
+[schedule]
+publish_time = "06:30"     # local time the daily run starts
+coverage_window_hours = 48 # how far back events may come from
+# Items younger than this many hours go in only when confirmed by an official primary source.
+settle_hours = 12
+
+[issue]
+min_items = 4              # a quiet day gets a shorter issue; never pad
+max_items = 10
+sections = ["ישראל", "כלכלה", "עולם", "מדע וסביבה"]
+analysis = true            # one dry, professional analysis piece per issue when a topic warrants it
+
+[editorial]
+# Extra emphasis for this paper's readers (free text, read by the editor skill).
+audience = "קהילה בישראל. קוראים שרוצים לדעת מה הוחלט ומה השתנה, בלי רעש פוליטי."
+# Topics this paper skips entirely.
+exclude_topics = ["תוצאות ספורט", "סלבריטאים", "פשיעה שגרתית ללא משמעות מערכתית", "סקרי בחירות"]
+# Sources to prefer when searching. Primary/official sources always outrank these.
+preferred_sources = [
+  "Reuters", "AP", "AFP",
+  "בנק ישראל", "הלשכה המרכזית לסטטיסטיקה", "רשומות", "אתר הכנסת", "משטרת ישראל",
+  "Times of Israel", "Globes",
+  "Nature", "Science", "The Lancet",
+]
+avoid_sources = []         # outlets this paper never uses as a source
+
+[labels]
+# Fixed UI text, in the paper's language.
+issue_number = "גיליון מס׳"
+analysis = "ניתוח"
+corrections = "תיקונים"
+previous = "→ הגיליון הקודם"
+next = "הגיליון הבא ←"
+archive = "ארכיון"
+policy = "מדיניות עריכה"
+today = "הגיליון של היום"
+archive_title = "ארכיון הגיליונות"
+archive_note = "גיליון חדש מתווסף כאן מדי יום. גיליון שפורסם אינו משתנה; תיקונים מופיעים בגיליון שלמחרת."
+colophon = "הגיליון נכתב ונבדק אוטומטית. כל ידיעה אומתה מול מקורה לפני פרסום; כאשר מקורות חלוקים על נתון, שני הנתונים מופיעים. אין בעיתון פרסומות, תוכן ממומן או מעקב אחר קוראים."
+months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"]
