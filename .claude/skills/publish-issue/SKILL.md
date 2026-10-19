@@ -22,21 +22,29 @@ Read the previous issue. For each item whose facts could have moved since (casua
 outcomes, figures marked preliminary, events still unfolding), search for updates. Draft a correction
 for anything now known to be wrong or materially changed. Keep the list for step 4.
 
-## 2. Gather
+## 2. Gather — with gatherer subagents
 
-For each section in `issue.sections`, search for events in the last `schedule.coverage_window_hours`.
-Start broad ("<section topic> news <date>"), then go to primary sources: official announcements,
-statistics releases, central bank and court decisions, journals. Prefer `editorial.preferred_sources`;
-never use `editorial.avoid_sources`. Fetch the actual pages; search snippets are not sources.
+Don't search the news yourself: gathering is the bulk of the run, and doing it in your own context
+makes every later step slower and more expensive. Launch one gatherer subagent per section in
+`issue.sections`, all in a single message so they run in parallel, each with the Agent tool and
+`model` set to `models.gather` from `newspaper.toml`. Give each one this task:
 
-Record each fact you may use with its source, URL, publication date and retrieval time. Check every
-page's date against the event: aggregator pages and live blogs often show stale content.
+> Use the gather skill (.claude/skills/gather/SKILL.md). Section: <section>. Today: <YYYY-MM-DD>,
+> timezone <paper.timezone>. Coverage window: <schedule.coverage_window_hours> hours. Write your
+> candidates to work/<YYYY-MM-DD>/<n>.json (n = the section's position, starting at 1).
 
-Aim for twice as many candidates as `issue.max_items`, so selection is a real choice.
+When they have all returned, read the candidate files. `work/` is scratch space and is never committed.
+If a section's file is missing or empty, launch that section's gatherer once more; if it fails again,
+publish without that section and note it in the commit message.
+
+You may run a few searches of your own to settle a specific doubt about a candidate (a conflicting
+figure, a stale-looking date), but not to gather new items.
 
 ## 3. Select
 
-Apply the editor skill's three tests and its exclusions to every candidate. Items younger than
+Apply the editor skill's three tests and its exclusions to every candidate. Gatherers are cheaper,
+faster models: treat their files as leads with sources, not as verified facts, and open a source
+yourself whenever a candidate you select looks thin, borderline or surprising. Items younger than
 `schedule.settle_hours` go in only on an official primary source. Rank by impact; keep at most
 `issue.max_items`. Choose the analysis topic, if any.
 
@@ -47,7 +55,8 @@ the corrections from step 1, and `issues/YYYY/MM/DD.sources.json` with an entry 
 
 ## 5. Verify — with a separate agent
 
-Launch a subagent (Agent tool) with this task, and nothing about how you wrote the draft:
+Launch a subagent (Agent tool, `model` set to `models.verify` from `newspaper.toml`) with this task,
+and nothing about how you wrote the draft or what the gatherers found:
 
 > Use the fact-check skill (.claude/skills/fact-check/SKILL.md) to verify issues/YYYY/MM/DD.md
 > against issues/YYYY/MM/DD.sources.json. Write the report to issues/YYYY/MM/DD.check.md and

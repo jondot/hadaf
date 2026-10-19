@@ -16,6 +16,11 @@ coverage_window_hours = 48 # how far back events may come from
 # Items younger than this many hours go in only when confirmed by an official primary source.
 settle_hours = 12
 
+[models]
+# Which model each role runs on. The editor (selection, writing) is the model the run starts with.
+gather = "sonnet"          # one gatherer per section, in parallel: the bulk of the searching
+verify = "opus"            # the independent fact-checker
+
 [issue]
 min_items = 4              # a quiet day gets a shorter issue; never pad
 max_items = 10
