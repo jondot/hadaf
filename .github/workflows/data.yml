@@ -1,0 +1,52 @@
+name: Fetch daily data
+
+# Weather, exchange rates and Shabbat times for the service box, fetched from public data sources
+# and committed next to the day's issue before the daily Claude run. Runs at 02:30 UTC
+# (05:30 Israel summer time, 04:30 winter time). Edit the cron if your paper publishes elsewhere.
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Issue date (YYYY-MM-DD). Empty = today in the paper's timezone."
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            python scripts/fetch_data.py --date "${{ inputs.date }}"
+          else
+            python scripts/fetch_data.py
+          fi
+      - name: Commit
+        run: |
+          git config user.name "hadaf-data"
+          git config user.email "actions@users.noreply.github.com"
+          git add issues/
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Data for $(ls -t issues/*/*/*.data.json | head -1)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          exit 1

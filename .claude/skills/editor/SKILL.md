@@ -81,6 +81,28 @@ each part a paragraph starting with its label in bold:
 
 No predictions, no recommendations, no adjectives. If no topic warrants it, publish without one.
 
+## The calendar ("ביומן")
+
+Scheduled, officially announced events in the next seven days that readers can plan around: rate
+decisions and statistics releases, votes and elections, court hearings of public importance, holidays,
+public-transport changes, officially declared strikes. Up to six lines, in date order, each one
+"date · who does what". Only events with an official announcement; never "expected" or "reportedly".
+Leave the section out on a week with nothing to list.
+
+## On this day ("היום לפני")
+
+One historical event from this calendar date, in two or three plain sentences: what happened, and
+why it is remembered. Prefer science, culture, institutions, firsts and discoveries; avoid wars,
+disasters and atrocities unless the anniversary is a nationally marked one. A reputable reference
+(an encyclopedia, a museum, an archive) is enough as the source.
+
+## The service box
+
+Weather, exchange rates, sunrise and sunset, and Shabbat times are not yours to write. They come
+from public data sources through `scripts/fetch_data.py`, run by a GitHub workflow before your run,
+into `issues/YYYY/MM/DD.data.json`. Never write or edit that file, and never put those numbers in
+the issue text. If the file is missing, the box is simply absent today.
+
 ## Corrections
 
 Published issues are never edited. Each run first re-checks the previous issue against what is now
@@ -135,6 +157,19 @@ Body.
 
 **הטיעון להפחתה.** Paragraph.
 
+## ביומן {calendar}
+
+- 21.10 · בנק ישראל מפרסם את החלטת הריבית
+- 27.10 · הבחירות לכנסת ה־26
+
+> מקור: בנק ישראל; ועדת הבחירות המרכזית.
+
+## היום לפני {onthisday}
+
+Two or three sentences about one historical event on this date.
+
+> מקור: Reference name.
+
 ## תיקונים {corrections}
 
 One paragraph per correction, or a single line saying there are none.
@@ -147,9 +182,11 @@ Rules for the format:
   that don't use it. Compute the Hebrew date carefully (Rosh Chodesh, leap years); the verifier checks it.
 - `## Section` headings use the names in `issue.sections`, in that order, skipping empty sections.
 - `### Headline` starts an item; the item's body paragraphs follow; the `>` line is its source line.
-- `## … {analysis}` and `## … {corrections}` are the special sections; the text before the brace is
-  the visible label (use `labels.analysis` and `labels.corrections`).
-- Only `**bold**` inline formatting is supported. No links, images, lists or tables in an issue.
+- `## … {analysis}`, `{calendar}`, `{onthisday}` and `{corrections}` are the special sections; the
+  text before the brace is the visible label (use `labels.analysis`, `labels.calendar`,
+  `labels.on_this_day`, `labels.corrections`). They come after the news sections, in that order.
+- Calendar lines start with `- `; that is the only list in an issue.
+- Only `**bold**` inline formatting is supported. No links, images or tables in an issue.
 
 `DD.sources.json` is a list of objects, one per factual claim the verifier must check:
 

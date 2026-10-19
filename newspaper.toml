@@ -41,6 +41,58 @@ preferred_sources = [
 ]
 avoid_sources = []         # outlets this paper never uses as a source
 
+[service]
+# The service box: weather, exchange rates, sun and Shabbat times. Fetched by scripts/fetch_data.py
+# from public data sources (no AI involved) by the "Fetch daily data" workflow, before the daily run.
+weather_days = 7
+sun_city = "ירושלים"       # city for sunrise/sunset in the box
+rates = ["USD", "EUR"]     # Bank of Israel representative rates vs the shekel
+shabbat = true             # Shabbat times and weekly portion in Friday's issue
+
+# geonameid is used for Shabbat times (hebcal.com); lat/lon for weather (open-meteo.com).
+# shabbat = true on a city includes it in the Shabbat times.
+[[service.cities]]
+name = "ירושלים"
+lat = 31.778
+lon = 35.235
+geonameid = 281184
+shabbat = true
+
+[[service.cities]]
+name = "תל אביב"
+lat = 32.085
+lon = 34.781
+geonameid = 293397
+shabbat = true
+
+[[service.cities]]
+name = "חיפה"
+lat = 32.794
+lon = 34.990
+geonameid = 294801
+shabbat = true
+
+[[service.cities]]
+name = "באר שבע"
+lat = 31.252
+lon = 34.791
+geonameid = 295530
+shabbat = true
+
+[[service.cities]]
+name = "טבריה"
+lat = 32.790
+lon = 35.531
+geonameid = 293322
+shabbat = false
+
+[[service.cities]]
+name = "אילת"
+lat = 29.558
+lon = 34.952
+geonameid = 295277
+shabbat = false
+
 [labels]
 # Fixed UI text, in the paper's language.
 issue_number = "גיליון מס׳"
@@ -54,4 +106,22 @@ today = "הגיליון של היום"
 archive_title = "ארכיון הגיליונות"
 archive_note = "גיליון חדש מתווסף כאן מדי יום. גיליון שפורסם אינו משתנה; תיקונים מופיעים בגיליון שלמחרת."
 colophon = "הגיליון נכתב ונבדק אוטומטית. כל ידיעה אומתה מול מקורה לפני פרסום; כאשר מקורות חלוקים על נתון, שני הנתונים מופיעים. אין בעיתון פרסומות, תוכן ממומן או מעקב אחר קוראים."
+calendar = "ביומן"
+on_this_day = "היום לפני"
+weather = "מזג האוויר השבוע"
+rates_title = "שערים יציגים"
+sun = "זריחה ושקיעה"
+sunrise = "זריחה"
+sunset = "שקיעה"
+shabbat_title = "זמני שבת"
+candles = "כניסה"
+havdalah = "יציאה"
+# shown above the Shabbat times: candle lighting · havdalah
+rain = "גשם"
+service_sources = "מקורות: Open-Meteo (תחזית), בנק ישראל (שערים), Hebcal (זמני שבת). הנתונים נמשכים אוטומטית, ללא עריכה."
+currency_names = { USD = "דולר", EUR = "אירו", GBP = "לירה שטרלינג", JPY = "100 ין" }
+# Monday..Sunday, short form for table headers
+weekdays_short = ["ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳", "א׳"]
+# WMO weather codes grouped: clear, partly cloudy, cloudy, fog, drizzle, rain, snow, showers, thunderstorm
+conditions = { clear = "בהיר", partly = "מעונן חלקית", cloudy = "מעונן", fog = "ערפל", drizzle = "טפטוף", rain = "גשם", snow = "שלג", showers = "ממטרים", storm = "סופות רעמים" }
 months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"]

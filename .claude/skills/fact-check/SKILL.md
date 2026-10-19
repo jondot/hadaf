@@ -29,6 +29,10 @@ For each factual statement in the draft (every number, date, name, place, decisi
    - **contradicted** — sources say otherwise. Remove, or report both figures with attribution if
      that is how reliable sources disagree.
 
+The calendar and on-this-day sections are claims like any other: check each calendar date against its
+official announcement, and the historical event against its reference. The service box data
+(`DD.data.json`) comes from data sources, not from the writer; it is out of scope.
+
 Also check the frontmatter: the date, the weekday, the Hebrew date (search to confirm it), and that
 `number` is one more than the previous issue's.
 

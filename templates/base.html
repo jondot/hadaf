@@ -50,6 +50,34 @@ article p+p{margin-top:8px}
 .analysis p{margin-bottom:12px}
 .analysis p:last-child{margin-bottom:0}
 
+.num{font-variant-numeric:tabular-nums}
+.today .pair{white-space:nowrap}
+.today{margin:0;padding:8px 0;text-align:center;font-size:15px;border-bottom:1px solid var(--rule);line-height:1.6}
+
+.extras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:24px 56px;border-top:3px solid var(--rule);padding-top:20px}
+.extra{min-width:0}
+.cal{list-style:none;margin:0;padding:0}
+.cal li{font-size:16px;line-height:1.6;padding:6px 0;border-bottom:1px solid var(--hair)}
+.cal li:last-child{border-bottom:0}
+
+.service{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,280px);gap:20px 48px;border-top:3px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:20px}
+@media (max-width:820px){.service{grid-template-columns:minmax(0,1fr)}}
+.wx{min-width:0}
+.scroll{overflow-x:auto}
+.wx table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+.wx th,.wx td{padding:7px 8px;text-align:center;border-bottom:1px solid var(--hair);white-space:nowrap;vertical-align:top}
+.wx thead th{font-weight:600;font-size:14px;color:var(--muted);border-bottom:1px solid var(--rule)}
+.wx tbody th{text-align:start;font-weight:600;padding-inline-start:0}
+.wx .rain{display:block;font-size:12.5px;color:var(--muted)}
+.side{display:flex;flex-direction:column;gap:18px;min-width:0}
+.sub{margin:0 0 6px;font-family:var(--body);font-size:15px;font-weight:700}
+.kv{list-style:none;margin:0;padding:0}
+.kv li{display:flex;justify-content:space-between;gap:12px;font-size:15.5px;padding:4px 0;border-bottom:1px solid var(--hair)}
+.kv li:last-child{border-bottom:0}
+.chg{color:var(--muted);font-size:14px}
+.hint{font-size:13px;color:var(--muted);margin:0 0 2px}
+.svc-src{grid-column:1/-1;margin:0}
+
 footer{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 footer p{font-size:16px}
 footer .colophon{font-size:14px;color:var(--muted);max-width:68ch}

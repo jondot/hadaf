@@ -14,7 +14,10 @@ verifier failed.
 1. Read `newspaper.toml` and `.claude/skills/editor/SKILL.md` in full.
 2. Get today's date in `paper.timezone` (`TZ=<timezone> date +%F`). If `issues/YYYY/MM/DD.md`
    already exists for today, stop: today's issue is out.
-3. Find the previous issue (the latest file under `issues/`) and note its `number`.
+3. Find the previous issue (the latest issue `.md` file under `issues/`) and note its `number`.
+4. Check whether `issues/YYYY/MM/DD.data.json` exists (the service box data, written by a GitHub
+   workflow). Don't read it into your work and never edit it; just note in the commit message if it is
+   missing or lists errors.
 
 ## 1. Re-check yesterday
 
@@ -33,6 +36,9 @@ makes every later step slower and more expensive. Launch one gatherer subagent p
 > timezone <paper.timezone>. Coverage window: <schedule.coverage_window_hours> hours. Write your
 > candidates to work/<YYYY-MM-DD>/<n>.json (n = the section's position, starting at 1).
 
+In the same message, launch two more gatherers the same way, with `Section: calendar` (write to
+`work/<YYYY-MM-DD>/calendar.json`) and `Section: onthisday` (write to `work/<YYYY-MM-DD>/onthisday.json`).
+
 When they have all returned, read the candidate files. `work/` is scratch space and is never committed.
 If a section's file is missing or empty, launch that section's gatherer once more; if it fails again,
 publish without that section and note it in the commit message.
@@ -46,7 +52,8 @@ Apply the editor skill's three tests and its exclusions to every candidate. Gath
 faster models: treat their files as leads with sources, not as verified facts, and open a source
 yourself whenever a candidate you select looks thin, borderline or surprising. Items younger than
 `schedule.settle_hours` go in only on an official primary source. Rank by impact; keep at most
-`issue.max_items`. Choose the analysis topic, if any.
+`issue.max_items`. Choose the analysis topic, if any. Pick the calendar lines and the one on-this-day
+event from their candidate files, following the editor skill.
 
 ## 4. Draft
 
@@ -74,7 +81,8 @@ confirm the issue's headlines appear in it.
 
 ## 7. Publish
 
-Commit only the three issue files (`DD.md`, `DD.sources.json`, `DD.check.md`), then push to `main`.
+Commit only the three issue files (`DD.md`, `DD.sources.json`, `DD.check.md`), then
+`git pull --rebase origin main` (the data workflow may have pushed meanwhile) and push to `main`.
 Never commit `site/` (the deploy workflow builds it). Commit message:
 
 ```

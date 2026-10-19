@@ -30,6 +30,8 @@ newspaper.toml                       ← ההעדפות של העיתון
 issues/YYYY/MM/DD.md                 ← הגיליון
 issues/YYYY/MM/DD.sources.json       ← מקור לכל טענה
 issues/YYYY/MM/DD.check.md           ← דוח הבדיקה
+issues/YYYY/MM/DD.data.json          ← נתוני תיבת השירות (מזג אוויר, שערים, שבת)
+scripts/fetch_data.py                ← מושך את נתוני השירות, בלי AI (רץ ב־GitHub Actions)
 scripts/build.py                     ← בונה את האתר: גיליון, ארכיון, מדיניות, RSS
 templates/base.html                  ← העיצוב
 ```

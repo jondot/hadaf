@@ -32,6 +32,7 @@ TEMPLATE = (ROOT / "templates" / "base.html").read_text(encoding="utf-8")
 CONFIG = tomllib.loads((ROOT / "newspaper.toml").read_text(encoding="utf-8"))
 PAPER = CONFIG["paper"]
 LABELS = CONFIG["labels"]
+SERVICE = CONFIG.get("service", {})
 
 
 # ---------- parsing ----------
@@ -43,14 +44,18 @@ class Item:
     source: str = ""
 
 
+SPECIAL = ("analysis", "corrections", "calendar", "onthisday")
+
+
 @dataclass
 class Section:
     label: str
-    kind: str = "desk"  # desk | analysis | corrections
+    kind: str = "desk"  # desk | analysis | corrections | calendar | onthisday
     items: list[Item] = field(default_factory=list)
     title: str = ""     # analysis only
-    byline: str = ""    # analysis only
-    paras: list[str] = field(default_factory=list)  # analysis / corrections body
+    byline: str = ""    # analysis byline; source line for calendar / onthisday
+    paras: list[str] = field(default_factory=list)  # body of the special sections
+    entries: list[str] = field(default_factory=list)  # calendar lines
 
 
 @dataclass
@@ -58,6 +63,11 @@ class Issue:
     path: Path
     meta: dict
     sections: list[Section]
+
+    @property
+    def data(self) -> dict:
+        p = self.path.with_name(self.path.stem + ".data.json")
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
     @property
     def day(self) -> date:
@@ -91,7 +101,7 @@ def parse_issue(path: Path) -> Issue:
     for block in blocks:
         if block.startswith("## "):
             head = block[3:].strip()
-            km = re.match(r"^(.*?)\s*\{(analysis|corrections)\}$", head)
+            km = re.match(r"^(.*?)\s*\{(" + "|".join(SPECIAL) + r")\}$", head)
             sections.append(Section(label=km.group(1), kind=km.group(2)) if km else Section(label=head))
             continue
         if not sections:
@@ -105,9 +115,12 @@ def parse_issue(path: Path) -> Issue:
             else:
                 fail(path, "headline inside corrections")
             continue
+        if sec.kind == "calendar" and block.startswith("- "):
+            sec.entries.extend(l[2:].strip() for l in block.splitlines() if l.startswith("- "))
+            continue
         if block.startswith(">"):
             line = " ".join(l.lstrip("> ").strip() for l in block.splitlines())
-            if sec.kind == "analysis":
+            if sec.kind in SPECIAL:
                 sec.byline = line
             elif sec.items:
                 sec.items[-1].source = line
@@ -170,7 +183,7 @@ def render_issue(issue: Issue, prev: Issue | None, nxt: Issue | None, base: str)
         dateline.append(m["hebrew_date"])
     dateline.append(f"{LABELS['issue_number']} {m['number']}")
 
-    desks, analysis, corrections = [], "", ""
+    desks, extras, analysis, corrections = [], [], "", ""
     for sec in issue.sections:
         if sec.kind == "desk":
             arts = []
@@ -186,6 +199,17 @@ def render_issue(issue: Issue, prev: Issue | None, nxt: Issue | None, base: str)
         elif sec.kind == "corrections":
             body = " ".join(inline(p) for p in sec.paras)
             corrections = f"<p><strong>{inline(sec.label)}:</strong> {body}</p>"
+        elif sec.kind == "calendar" and sec.entries:
+            src = f'<p class="src">{inline(sec.byline)}</p>' if sec.byline else ""
+            lis = "".join(f"<li>{inline(e)}</li>" for e in sec.entries)
+            extras.append(f'<section class="extra"><h2 class="label">{inline(sec.label)}</h2><ul class="cal">{lis}</ul>{src}</section>')
+        elif sec.kind == "onthisday" and sec.paras:
+            src = f'<p class="src">{inline(sec.byline)}</p>' if sec.byline else ""
+            body = "".join(f"<p>{inline(p)}</p>" for p in sec.paras)
+            extras.append(f'<section class="extra"><h2 class="label">{inline(sec.label)}</h2>{body}{src}</section>')
+    extras_html = f'<div class="extras">{"".join(extras)}</div>' if extras else ""
+    data = issue.data
+    strip, service = render_today_strip(data), render_service(data)
 
     def link(target: Issue | None, label: str) -> str:
         if target is None:
@@ -203,9 +227,12 @@ def render_issue(issue: Issue, prev: Issue | None, nxt: Issue | None, base: str)
 <h1 class="mast"><a href="{base}index.html">{html.escape(PAPER["name"])}</a></h1>
 <div class="double" aria-hidden="true"></div>
 <p class="tag">{html.escape(PAPER["tagline"])} · {html.escape(m["summary"])}</p>
+{strip}
 </header>
 <main class="cols">{"".join(desks)}</main>
 {analysis}
+{extras_html}
+{service}
 <footer>
 {corrections}
 <p class="colophon">{html.escape(LABELS["colophon"])}</p>
@@ -214,6 +241,83 @@ def render_issue(issue: Issue, prev: Issue | None, nxt: Issue | None, base: str)
 </div>"""
     title = f"{PAPER['name']} · {LABELS['issue_number']} {m['number']}"
     return page(title, f"{m['weekday']}, {long_date(issue.day)}", content, base)
+
+
+def signed(x: float, digits: int) -> str:
+    """A signed number, isolated left-to-right so the sign stays put in RTL text."""
+    s = f"{abs(x):.{digits}f}"
+    s = f"+{s}" if x > 0 else (f"−{s}" if x < 0 else s)
+    return f'<bdi dir="ltr">{s}</bdi>'
+
+
+def temps(d: dict) -> str:
+    """Low–high range, isolated left-to-right so it reads the same in RTL text."""
+    return f'<bdi dir="ltr" class="num">{d["min"]}°–{d["max"]}°</bdi>'
+
+
+def render_today_strip(data: dict) -> str:
+    """One line under the masthead: today's highs/lows per city and the exchange rates."""
+    parts = []
+    for c in data.get("weather", {}).get("cities", []):
+        if c["days"]:
+            d = c["days"][0]
+            parts.append(f'<span class="pair">{html.escape(c["name"])} {temps(d)}</span>')
+    for r in data.get("rates", {}).get("rates", []):
+        name = LABELS["currency_names"].get(r["code"], r["code"])
+        parts.append(f'<span class="pair">{html.escape(name)} <span class="num">{r["rate"]:.3f}</span></span>')
+    return f'<p class="today">{" · ".join(parts)}</p>' if parts else ""
+
+
+def render_service(data: dict) -> str:
+    """The service band: weekly weather table, rates, sun times, Shabbat times."""
+    blocks = []
+    weather = data.get("weather", {}).get("cities", [])
+    if weather and weather[0]["days"]:
+        days = weather[0]["days"]
+        head = "".join(
+            f'<th scope="col">{LABELS["weekdays_short"][date.fromisoformat(d["date"]).weekday()]} '
+            f'<span class="num">{date.fromisoformat(d["date"]).day}.{date.fromisoformat(d["date"]).month}</span></th>'
+            for d in days)
+        rows = []
+        for c in weather:
+            cells = []
+            for d in c["days"]:
+                rain = (f'<span class="rain">{LABELS["rain"]} {d["rain"]}%</span>'
+                        if d.get("rain") is not None and d["rain"] >= 40 else "")
+                cells.append(f'<td>{temps(d)}{rain}</td>')
+            rows.append(f'<tr><th scope="row">{html.escape(c["name"])}</th>{"".join(cells)}</tr>')
+        blocks.append(
+            f'<section class="wx"><h2 class="label">{LABELS["weather"]}</h2>'
+            f'<div class="scroll"><table><thead><tr><td></td>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div></section>')
+
+    side = []
+    rates = data.get("rates", {}).get("rates", [])
+    if rates:
+        lines = "".join(
+            f'<li><span>{html.escape(LABELS["currency_names"].get(r["code"], r["code"]))}</span>'
+            f'<span class="num">{r["rate"]:.3f} <span class="chg">({signed(r["change"], 3)})</span></span></li>'
+            for r in rates)
+        side.append(f'<div><h3 class="sub">{LABELS["rates_title"]}</h3><ul class="kv">{lines}</ul></div>')
+    sun_city = next((c for c in weather if c["name"] == SERVICE.get("sun_city")), weather[0] if weather else None)
+    if sun_city and sun_city["days"]:
+        d = sun_city["days"][0]
+        side.append(f'<div><h3 class="sub">{LABELS["sun"]} · {html.escape(sun_city["name"])}</h3><ul class="kv">'
+                    f'<li><span>{LABELS["sunrise"]}</span><span class="num">{d["sunrise"]}</span></li>'
+                    f'<li><span>{LABELS["sunset"]}</span><span class="num">{d["sunset"]}</span></li></ul></div>')
+    shabbat = data.get("shabbat")
+    if shabbat and shabbat.get("cities"):
+        title = LABELS["shabbat_title"] + (f' · {html.escape(shabbat["parasha"])}' if shabbat.get("parasha") else "")
+        lines = "".join(
+            f'<li><span>{html.escape(c["name"])}</span><span class="num"><bdi>{c["candles"]}</bdi> · <bdi>{c["havdalah"]}</bdi></span></li>'
+            for c in shabbat["cities"])
+        side.append(f'<div><h3 class="sub">{title}</h3><p class="hint">{LABELS["candles"]} · {LABELS["havdalah"]}</p>'
+                    f'<ul class="kv">{lines}</ul></div>')
+    if side:
+        blocks.append(f'<div class="side">{"".join(side)}</div>')
+    if not blocks:
+        return ""
+    return (f'<section class="service" aria-label="{LABELS["weather"]}">{"".join(blocks)}'
+            f'<p class="src svc-src">{html.escape(LABELS["service_sources"])}</p></section>')
 
 
 def small_header(base: str, subtitle: str) -> str:
