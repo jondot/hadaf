@@ -140,10 +140,26 @@ def fetch_shabbat() -> dict:
     return {"source": "Hebcal", "parasha": parasha, "cities": cities}
 
 
+def latest_issue_date() -> date | None:
+    files = sorted((ROOT / "issues").glob("*/*/[0-9][0-9].md"))
+    if not files:
+        return None
+    f = files[-1]
+    return date(int(f.parent.parent.name), int(f.parent.name), int(f.stem))
+
+
 def main() -> None:
     args = sys.argv[1:]
-    day = date.fromisoformat(args[args.index("--date") + 1]) if "--date" in args \
-        else datetime.now(ZoneInfo(TZ)).date()
+    if "--latest-if-missing" in args:
+        # Used by the deploy workflow: fetch data for the newest issue unless it already has some.
+        day = latest_issue_date()
+        if day is None or (ROOT / "issues" / f"{day:%Y}" / f"{day:%m}" / f"{day:%d}.data.json").exists():
+            print("fetch_data: latest issue already has data; nothing to do")
+            return
+    elif "--date" in args:
+        day = date.fromisoformat(args[args.index("--date") + 1])
+    else:
+        day = datetime.now(ZoneInfo(TZ)).date()
     out = {"date": day.isoformat(), "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
            "errors": []}
 

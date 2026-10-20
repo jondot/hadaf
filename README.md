@@ -17,7 +17,9 @@
 4. מחק את התיקייה `issues/` (הגיליון הראשון שלך יקבל את המספר 1).
 5. הפעל GitHub Pages: Settings › Pages › Source: **GitHub Actions**.
 6. הגדר משימה מתוזמנת ב־Claude (בענן, מחוברת לריפו שלך) שרצה כל בוקר עם ההוראה:
-   > Use the publish-issue skill to produce and publish today's issue.
+   > Use the publish-issue skill to produce and publish today's issue. Tech lead sources you may fetch: https://news.ycombinator.com/ and https://news.ycombinator.com/best
+
+   הכתובות בהוראה חייבות להיות זהות לאלו שב־`tech.lead_sources`. ריצה אוטומטית רשאית לפתוח רק כתובות שקיבלה, וכל כתובת אחרת תבקש ממך אישור באמצע הריצה.
 
 ## איך זה עובד
 
@@ -31,12 +33,12 @@ issues/YYYY/MM/DD.md                 ← הגיליון
 issues/YYYY/MM/DD.sources.json       ← מקור לכל טענה
 issues/YYYY/MM/DD.check.md           ← דוח הבדיקה
 issues/YYYY/MM/DD.data.json          ← נתוני תיבת השירות (מזג אוויר, שערים, שבת)
-scripts/fetch_data.py                ← מושך את נתוני השירות, בלי AI (רץ ב־GitHub Actions)
+scripts/fetch_data.py                ← מושך את נתוני השירות, בלי AI (רץ ב־GitHub Actions אחרי כל גיליון)
 scripts/build.py                     ← בונה את האתר: גיליון, ארכיון, מדיניות, RSS
 templates/base.html                  ← העיצוב
 ```
 
-בכל בוקר: Claude בודק מחדש את הגיליון של אתמול ושולח סוכן איסוף לכל מדור במקביל (על Sonnet, כדי לחסוך). העורך (Opus) מסנן לפי כללי העריכה, כותב טיוטה, ומעביר אותה למאמת נפרד. המודל של כל תפקיד מוגדר ב־`newspaper.toml`. אחרי התיקונים הוא דוחף את הגיליון ל־`main`, ו־GitHub Actions בונה ומפרסם את האתר.
+בכל בוקר: Claude שולח סוכן איסוף לכל מדור במקביל (על Sonnet, כדי לחסוך). מדור הטכנולוגיה מתחיל מהדירוג של Hacker News ונכתב מהמקור הראשוני. העורך (Opus) מסנן לפי כללי העריכה, כותב טיוטה, ומעביר אותה למאמת נפרד. המודל של כל תפקיד מוגדר ב־`newspaper.toml`. אחרי התיקונים הוא דוחף את הגיליון ל־`main`, ו־GitHub Actions מוסיף את נתוני השירות, בונה ומפרסם את האתר.
 
 הבנייה מקומית: `python3 scripts/build.py` (Python 3.11 ומעלה, בלי תלויות).
 

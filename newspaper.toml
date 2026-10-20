@@ -23,8 +23,8 @@ verify = "opus"            # the independent fact-checker
 
 [issue]
 min_items = 4              # a quiet day gets a shorter issue; never pad
-max_items = 10
-sections = ["ישראל", "כלכלה", "עולם", "מדע וסביבה"]
+max_items = 12
+sections = ["ישראל", "כלכלה", "עולם", "טכנולוגיה", "מדע וסביבה"]
 analysis = true            # one dry, professional analysis piece per issue when a topic warrants it
 
 [editorial]
@@ -41,9 +41,17 @@ preferred_sources = [
 ]
 avoid_sources = []         # outlets this paper never uses as a source
 
+[tech]
+# The tech section starts from Hacker News and is written from the primary sources.
+# These URLs must also appear, word for word, in the prompt of your daily scheduled task:
+# an unattended run may fetch only URLs it was given, and fetching any other asks you for permission.
+section = "טכנולוגיה"
+max_items = 3
+lead_sources = ["https://news.ycombinator.com/", "https://news.ycombinator.com/best"]
+
 [service]
 # The service box: weather, exchange rates, sun and Shabbat times. Fetched by scripts/fetch_data.py
-# from public data sources (no AI involved) by the "Fetch daily data" workflow, before the daily run.
+# from public data sources (no AI involved) by the deploy workflow, right after the issue is pushed.
 weather_days = 7
 sun_city = "ירושלים"       # city for sunrise/sunset in the box
 rates = ["USD", "EUR"]     # Bank of Israel representative rates vs the shekel
