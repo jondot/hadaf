@@ -1,0 +1,86 @@
+{
+  "section": "מדע וסביבה",
+  "candidates": [
+    {
+      "event": "Phase III trial: personalised mRNA melanoma vaccine intismeran plus pembrolizumab cuts recurrence or death risk by 42% at two years",
+      "date": "2026-10-23",
+      "sources": ["The Guardian Science", "Nature News"],
+      "facts": [
+        {"claim": "Trial of 1,137 high-risk patients with surgically removed melanoma; combination reduced risk of recurrence or death by 42% versus pembrolizumab alone at two years", "id": "s212", "quote": "reduced the risk of melanoma recurrence or death by 42% compared with treatment with pembrolizumab alone"},
+        {"claim": "82% alive and recurrence-free at two years on the combination versus 70% on pembrolizumab alone", "id": "s212", "quote": "82% were alive and recurrence-free after two years, compared with 70% of participants treated with pembrolizumab alone"},
+        {"claim": "First individualised cancer vaccine with positive phase III results", "id": "s212", "quote": "It is the first individualised cancer vaccine to show positive results in a phase III clinical trial."},
+        {"claim": "Results accepted for publication in the New England Journal of Medicine and to be presented at the ESMO congress in Madrid this weekend", "id": "s212", "quote": "The results have been accepted for publication in the New England Journal of Medicine."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Nature (s335) text did not load; only its headline (Moderna vaccine almost halves risk) supports the second source. Independent expert notes a significant portion do not respond and the effect beyond two years is unknown. Not yet regulator-approved."
+    },
+    {
+      "event": "Study: heat killed an estimated 50,391 people in 854 European cities in summer 2026, about 32,619 attributed to human-caused warming",
+      "date": "2026-10-23",
+      "sources": ["NPR"],
+      "facts": [
+        {"claim": "Modelled 50,391 heat deaths in 854 European cities in June-August, of which 32,619 attributed to climate change from burning fossil fuels; study in Nature Health", "id": "s224", "quote": "50,391 people died from warmer temperatures, and of those, 32,619 died because of the extra heat caused by the burning of coal, oil and gas"},
+        {"claim": "71% above the previous deadliest summer (29,480 in 2022); likely an underestimate, cities cover about 40% of Europe's population", "id": "s224", "quote": "That's 71% higher than the previous deadliest summer, which was 29,480 in 2022"},
+        {"claim": "Highest tolls in Italy, France, Spain and Germany", "id": "s224", "quote": "Italy, France, Spain and Germany had the highest death tolls, the study said."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Modelled estimates from a published study (Imperial College London); single outlet in bundle."
+    },
+    {
+      "event": "NASA update on Artemis: Artemis III docking test in Earth orbit summer 2027, first landing (Artemis IV) still targeted for 2028",
+      "date": "2026-10-23",
+      "sources": ["Phys.org (AP)", "Ars Technica"],
+      "facts": [
+        {"claim": "NASA says Artemis III, a crewed Earth-orbit docking test with SpaceX and Blue Origin landers, is on track for next summer, with no lunar trip", "id": "s346", "quote": "still on track to launch Artemis III next summer on a docking exercise"},
+        {"claim": "Artemis IV, first crewed landing since Apollo, remains scheduled for 2028", "id": "s346", "quote": "The all-important Artemis IV—NASA's first moon landing by astronauts since Apollo—remains scheduled for 2028"},
+        {"claim": "NASA will choose between SpaceX and Blue Origin for the Artemis IV lander later", "id": "s346", "quote": "NASA will keep its options open as long as possible before choosing between SpaceX and Blue Origin"},
+        {"claim": "Revised architecture: Orion to dock with Starship in high-Earth orbit before heading to the Moon; Blue Origin plan uses four New Glenn launches", "id": "s375", "quote": "the revised plan calls for the Orion spacecraft to dock with the Starship lunar lander in high-Earth orbit before transiting to the Moon"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Based on a NASA news conference reported by two outlets. Schedule reaffirmed with architecture changes; moderate novelty."
+    },
+    {
+      "event": "Magnitude-7 earthquake in northern Tibet kills at least 16, per official Chinese media",
+      "date": "2026-10-22",
+      "sources": ["The Guardian World"],
+      "facts": [
+        {"claim": "Quake killed at least 16, injured 54 and destroyed hundreds of homes in Nagqu, per official media", "id": "s188", "quote": "killing at least 16 people, injuring 54 and destroying hundreds of homes in the northern regional city of Nagqu"},
+        {"claim": "USGS recorded at least seven aftershocks of magnitude 4.3-5.2", "id": "s188", "quote": "The agency recorded at least seven aftershocks of magnitudes between 4.3 and 5.2"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Casualty figures are from Chinese state media and may rise; arguably a World item. Single outlet in bundle."
+    },
+    {
+      "event": "Study of 2,884 Type Ia supernovae gives further evidence dark energy may change over time",
+      "date": "2026-10-22",
+      "sources": ["ScienceDaily (University of Queensland)"],
+      "facts": [
+        {"claim": "Largest compiled set of 2,884 Type Ia supernovae, combined with other cosmic data, gives more evidence dark energy may not be constant", "id": "s343", "quote": "we have more evidence that dark energy may change over time"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Borderline: preliminary result, university press release, no significance figure; likely fails durability/verifiability."
+    },
+    {
+      "event": "Welsh government launches consultation on banning new steel pylons for lines up to 132 kV in favour of undergrounding",
+      "date": "2026-10-23",
+      "sources": ["BBC Science"],
+      "facts": [
+        {"claim": "Consultation launched Friday on a policy to prohibit large steel lattice pylons for new lines up to 132 kilovolts", "id": "s146", "quote": "Prohibiting the use of large steel lattice pylons for new lines up to 132 kilovolts was a Plaid Cymru manifesto pledge"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Low relevance to an Israeli audience; consultation only, no decision."
+    }
+  ],
+  "dropped": [
+    {"event": "Storms Austen and Boelo in UK; Typhoon Champi in Taiwan", "ids": ["s141", "s143", "s345"], "reason": "low impact"},
+    {"event": "First human infection with Shamonda virus (Nature)", "ids": ["s332"], "reason": "single source; text did not load, only headline"},
+    {"event": "Musk disputes NASA safety panel lunar launch estimates", "ids": ["s399"], "reason": "rhetoric; feed summary only"},
+    {"event": "Positron trapping, Kikai supervolcano refilling, PTSD magnetic stimulation, Parkinson exercise study, Denisovan fossils and other single-study press releases", "ids": ["s331", "s337", "s340", "s341", "s370"], "reason": "low impact; press-release style"}
+  ]
+}

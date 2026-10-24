@@ -1,0 +1,64 @@
+{
+  "section": "היום לפני",
+  "candidates": [
+    {
+      "event": "The Charter of the United Nations entered into force (24 Oct 1945)",
+      "date": "1945-10-24",
+      "sources": ["Wikipedia"],
+      "facts": [
+        {"claim": "The UN Charter entered into force on 24 Oct 1945 after ratification by the five permanent members of the Security Council and a majority of the other signatories", "id": "onthisday", "quote": "The Charter of the United Nations entered into force after being ratified by the five permanent members of the Security Council and a majority of the other signatories."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Source is the Wikipedia line in onthisday.md (file: work/2026-10-24/onthisday.md, not text/). UN Day is marked annually on this date, so it is nationally/internationally marked. Related: 1949 cornerstone of UN headquarters laid in New York."
+    },
+    {
+      "event": "Iceland's women's strike over wage discrepancy (24 Oct 1975)",
+      "date": "1975-10-24",
+      "sources": ["Wikipedia"],
+      "facts": [
+        {"claim": "On 24 Oct 1975, about 90 percent of Iceland's female population went on strike for a day in protest against wage discrepancy and unfair employment practices", "id": "onthisday", "quote": "In protest against wage discrepancy and unfair employment practices, 90 percent of Iceland's female population went on strike for a day."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Institutions/labour milestone; the line is brief, so the editor may need only the single fact."
+    },
+    {
+      "event": "William Lassell discovered Uranus's moons Umbriel and Ariel (24 Oct 1851)",
+      "date": "1851-10-24",
+      "sources": ["Wikipedia"],
+      "facts": [
+        {"claim": "On 24 Oct 1851 William Lassell discovered Umbriel and Ariel, the third- and fourth-largest moons of Uranus", "id": "onthisday", "quote": "Umbriel and Ariel, the third- and fourth-largest moons of Uranus, were discovered by William Lassell."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Science; no wars or disasters. Line is short."
+    },
+    {
+      "event": "George Washington Bridge dedicated (24 Oct 1931)",
+      "date": "1931-10-24",
+      "sources": ["Wikipedia"],
+      "facts": [
+        {"claim": "The George Washington Bridge, linking Manhattan and Fort Lee, New Jersey, was dedicated on 24 Oct 1931; it is today the world's busiest motor-vehicle bridge", "id": "onthisday", "quote": "connecting Manhattan, New York City, to Fort Lee, New Jersey, and today the world's busiest motor-vehicle bridge, was dedicated."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Infrastructure first/record."
+    },
+    {
+      "event": "Henry Parkes called for federation of the Australian colonies (24 Oct 1889)",
+      "date": "1889-10-24",
+      "sources": ["Wikipedia"],
+      "facts": [
+        {"claim": "On 24 Oct 1889 NSW Premier Sir Henry Parkes gave a speech calling for the federation of the six Australian colonies", "id": "onthisday", "quote": "gave a speech in which he called for the federation of the six Australian colonies."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Institutions; speech is the event itself, a step toward federation."
+    }
+  ],
+  "dropped": [
+    {"event": "Musashi sunk 1944; Battle of Schliengen 1796; Qutuz assassinated 1260; Black Thursday 1929; Lam Wing-kee abduction 2015; Loddon Bridge collapse 1972", "ids": ["onthisday"], "reason": "war, disaster or atrocity, or contested/political"},
+    {"event": "Man Utd v Arsenal 2004; Afro-Asian Games 2003; Brabant Revolution 1789; Brazilian junta 1930; Dmitry/Dracula 1885; Vietnam generals 1964", "ids": ["onthisday"], "reason": "low impact or conflict-related"}
+  ]
+}

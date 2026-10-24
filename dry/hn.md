@@ -1,0 +1,32 @@
+# Hacker News front page, by points
+
+- [s406] 1383 points · 234 comments · Local Wikipedia: Wikipedia, but only for things a half hour walk from you — https://edjefferson.com/localwiki/
+- [s407] 913 points · 530 comments · Kimi K3.1 Pro and K3.1 Pro Highspeed — https://www.kimi.ai/blog/kimi-k3-1-pro
+- [s408] 883 points · 575 comments · Today, we hacked what we'd set out to hack: the iPhone — https://blog.calif.io/p/iphone
+- [s409] 762 points · 231 comments · Apple Music 404 Not Found — https://music.apple.com/this-url-doesnt-exist
+- [s410] 415 points · 219 comments · Canadians are running out of time to oppose Bill C-22 — https://www.eff.org/deeplinks/2026/10/canadians-are-running-out-time-oppose-dangerous-c-22-surveillance-bill
+- [s411] 385 points · 138 comments · Dessa: Conversation Model trained only on speech — https://block.xyz/dessa
+- [s412] 306 points · 78 comments · The Real Kevin Bacon — https://pudding.cool/2026/10/kevin-bacon/
+- [s413] 198 points · 23 comments · Twelve years of distributed SQLite — https://philipotoole.com/twelve-years-of-distributed-sqlite/
+- [s414] 171 points · 61 comments · CVE Tracker — https://cve.0xosprey.com/
+- [s415] 153 points · 36 comments · Bringing uv and ty together — https://astral.sh/blog/uv-ty-integration
+- [s416] 148 points · 38 comments · OBS Studio 33 — https://github.com/obsproject/obs-studio/releases/tag/33.0.0
+- [s417] 147 points · 117 comments · UUIDv7: Timestamps aren’t time-ordered and other oddities — https://alexsci.com/blog/uuidv7-is-weird/
+- [s418] 133 points · 87 comments · How is music possible — https://www.henrikkarlsson.xyz/p/music
+- [s419] 131 points · 118 comments · Air Purifiers as White Noise Machines — https://www.jefftk.com/p/air-purifiers-as-white-noise-machines
+- [s420] 125 points · 22 comments · Hacker reverses Samsung TV, finds on-board AI listening OpenAI account suspended — https://www.reddit.com/r/antiai/comments/1xdv3e5/hacker_reverse_engineers_his_samsung_tv_and_finds/
+- [s421] 118 points · 11 comments · How close can pure functional programming get to C? — https://rtfeldman.com/fp-vs-c
+- [s422] 114 points · 11 comments · The Quake Fan who built the map editor everybody uses — https://funcarena.com/articles/the-quake-fan-who-built-the-map-editor-everybody-uses
+- [s423] 91 points · 25 comments · A practical guide to AI image generation, from diffusion to agents — https://danielball.com/notes/ai_image_generation.html
+- [s424] 81 points · 22 comments · Show HN: Corgi, a helpful {agent, terminal} multiplexer — https://corgi.computer/
+- [s425] 79 points · 22 comments · C vs. C#: racing VLC's Gaussian blur — https://martinfinkel.com/blog/gaussian-blur-c-vs-csharp/
+- [s426] 67 points · 21 comments · Apple Security Research Device — https://security.apple.com/research-device/
+- [s427] 67 points · 4 comments · Around a dozen banking apps began specifically permitting GrapheneOS — https://grapheneos.social/@GrapheneOS/117492375462459244
+- [s428] 53 points · 14 comments · How Block Blast harvests its players for ad money — https://ayoships.com/breakdowns/block-blast
+- [s429] 47 points · 2 comments · Rise of collagen-eating microbes may help explain gaps in the fossil record — https://www.cam.ac.uk/research/news/rise-of-collagen-eating-microbes-may-help-explain-gaps-in-the-fossil-record
+- [s430] 42 points · 14 comments · Physicists trap a single antimatter particle for a month — https://www.scientificamerican.com/article/physicists-trap-a-single-antimatter-particle-for-a-month/
+- [s431] 34 points · 2 comments · One Man's Pan Am 747 Replica [video] — https://www.youtube.com/watch?v=vAFwHGGfPz4
+- [s432] 24 points · 17 comments · The Best Monopoly Strategy, Tested on 300M Games [video] — https://www.youtube.com/watch?v=S_2eVAaw1UM
+- [s433] 11 points · 2 comments · How to run a city builder on 16 MHz — https://larstofus.com/2025/11/16/how-to-run-a-city-builder-on-12-5-mhz/
+- [s434] 7 points · 0 comments · ThinkRail from JetBrains — https://thinkrail.ai/
+- [s435] 5 points · 0 comments · A Cocktail Party in the Street: An Interview with Alan Stillman (2010) — https://www.ediblegeography.com/a-cocktail-party-in-the-street-an-interview-with-alan-stillman/

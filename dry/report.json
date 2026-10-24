@@ -1,0 +1,169 @@
+{
+ "Times of Israel": {
+  "ok": false,
+  "error": "HTTPError: HTTP Error 403: Forbidden"
+ },
+ "Ynet": {
+  "ok": true,
+  "in_feed": 30,
+  "kept": 30,
+  "with_text": 30
+ },
+ "Maariv": {
+  "ok": true,
+  "in_feed": 20,
+  "kept": 20,
+  "with_text": 20
+ },
+ "Walla": {
+  "ok": true,
+  "in_feed": 30,
+  "kept": 13,
+  "with_text": 13
+ },
+ "Ynetnews": {
+  "ok": true,
+  "in_feed": 30,
+  "kept": 0,
+  "with_text": 0
+ },
+ "Haaretz": {
+  "ok": true,
+  "in_feed": 100,
+  "kept": 30,
+  "with_text": 28
+ },
+ "Calcalist": {
+  "ok": false,
+  "error": "HTTPError: HTTP Error 403: Forbidden"
+ },
+ "Jerusalem Post": {
+  "ok": true,
+  "in_feed": 30,
+  "kept": 0,
+  "with_text": 0
+ },
+ "Globes": {
+  "ok": true,
+  "in_feed": 15,
+  "kept": 6,
+  "with_text": 6
+ },
+ "BBC World": {
+  "ok": true,
+  "in_feed": 27,
+  "kept": 25,
+  "with_text": 25
+ },
+ "BBC Middle East": {
+  "ok": true,
+  "in_feed": 23,
+  "kept": 4,
+  "with_text": 1
+ },
+ "BBC Business": {
+  "ok": true,
+  "in_feed": 55,
+  "kept": 18,
+  "with_text": 13
+ },
+ "BBC Science": {
+  "ok": true,
+  "in_feed": 41,
+  "kept": 18,
+  "with_text": 14
+ },
+ "Al Jazeera": {
+  "ok": true,
+  "in_feed": 25,
+  "kept": 25,
+  "with_text": 24
+ },
+ "The Guardian World": {
+  "ok": true,
+  "in_feed": 45,
+  "kept": 30,
+  "with_text": 30
+ },
+ "The Guardian Business": {
+  "ok": true,
+  "in_feed": 20,
+  "kept": 4,
+  "with_text": 2
+ },
+ "The Guardian Science": {
+  "ok": true,
+  "in_feed": 27,
+  "kept": 5,
+  "with_text": 4
+ },
+ "NPR World": {
+  "ok": true,
+  "in_feed": 10,
+  "kept": 10,
+  "with_text": 10
+ },
+ "DW": {
+  "ok": true,
+  "in_feed": 132,
+  "kept": 22,
+  "with_text": 22
+ },
+ "France 24": {
+  "ok": true,
+  "in_feed": 24,
+  "kept": 24,
+  "with_text": 0
+ },
+ "Euronews": {
+  "ok": true,
+  "in_feed": 50,
+  "kept": 30,
+  "with_text": 30
+ },
+ "CNBC World": {
+  "ok": true,
+  "in_feed": 30,
+  "kept": 27,
+  "with_text": 27
+ },
+ "Nature News": {
+  "ok": true,
+  "in_feed": 75,
+  "kept": 9,
+  "with_text": 9
+ },
+ "ScienceDaily": {
+  "ok": true,
+  "in_feed": 60,
+  "kept": 8,
+  "with_text": 8
+ },
+ "Phys.org": {
+  "ok": true,
+  "in_feed": 30,
+  "kept": 30,
+  "with_text": 24
+ },
+ "Ars Technica": {
+  "ok": true,
+  "in_feed": 20,
+  "kept": 16,
+  "with_text": 16
+ },
+ "The Register": {
+  "ok": true,
+  "in_feed": 50,
+  "kept": 15,
+  "with_text": 3
+ },
+ "Hacker News": {
+  "ok": true,
+  "kept": 30,
+  "with_text": 24
+ },
+ "Wikipedia on this day": {
+  "ok": true,
+  "kept": 18
+ }
+}

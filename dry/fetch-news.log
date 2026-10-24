@@ -1,0 +1,30 @@
+fetch_news: 435 items, 383 with full text, 27/29 sources ok -> work/2026-10-24/
+  ERR Times of Israel: HTTPError: HTTP Error 403: Forbidden
+  ok  Ynet: kept 30, text 30
+  ok  Maariv: kept 20, text 20
+  ok  Walla: kept 13, text 13
+  ok  Ynetnews: kept 0, text 0
+  ok  Haaretz: kept 30, text 28
+  ERR Calcalist: HTTPError: HTTP Error 403: Forbidden
+  ok  Jerusalem Post: kept 0, text 0
+  ok  Globes: kept 6, text 6
+  ok  BBC World: kept 25, text 25
+  ok  BBC Middle East: kept 4, text 1
+  ok  BBC Business: kept 18, text 13
+  ok  BBC Science: kept 18, text 14
+  ok  Al Jazeera: kept 25, text 24
+  ok  The Guardian World: kept 30, text 30
+  ok  The Guardian Business: kept 4, text 2
+  ok  The Guardian Science: kept 5, text 4
+  ok  NPR World: kept 10, text 10
+  ok  DW: kept 22, text 22
+  ok  France 24: kept 24, text 0
+  ok  Euronews: kept 30, text 30
+  ok  CNBC World: kept 27, text 27
+  ok  Nature News: kept 9, text 9
+  ok  ScienceDaily: kept 8, text 8
+  ok  Phys.org: kept 30, text 24
+  ok  Ars Technica: kept 16, text 16
+  ok  The Register: kept 15, text 3
+  ok  Hacker News: kept 30, text 24
+  ok  Wikipedia on this day: kept 18, text -

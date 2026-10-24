@@ -1,0 +1,92 @@
+{
+  "section": "כלכלה",
+  "candidates": [
+    {
+      "event": "The White House removes some Canadian goods from its 50% tariff list and adds others, effective 30 October",
+      "date": "2026-10-23",
+      "sources": ["BBC World", "CNBC World", "The Guardian Business"],
+      "facts": [
+        {"claim": "The White House announced on Friday 23 October that from 30 October some Canadian products (plywood, some paper products, certain machinery, refrigeration equipment) leave the tariff list while others (valves, carpets, waste products) are added", "id": "s303", "quote": "replacing those products with certain valves, carpets, waste products, and others"},
+        {"claim": "The changes take effect 30 October, four days before the US election on 3 November", "id": "s303", "quote": "will take effect Oct. 30, four days before the Nov. 3 U.S. election"},
+        {"claim": "The US imposed a 50% levy on about 20 billion dollars of Canadian goods after trade talks collapsed in August", "id": "s104", "quote": "The US imposed a 50% levy on $20bn (£15bn) worth of Canadian goods after trade talks between the two countries collapsed in August."},
+        {"claim": "Canada says it is assessing the steps and stands ready to work towards a trading relationship; Canada has imposed countermeasures", "id": "s104", "quote": "While we assess these latest steps, Canada stands ready to work constructively and in good faith"}
+      ],
+      "primary_source": true,
+      "conflicts": "BBC says tariffs are eased on some goods; CNBC and the White House fact sheet say removed products are replaced by others (net change, not a cut). Guardian says exemptions cover nine agricultural product categories per Sen. Collins (s210); BBC and CNBC list industrial goods.",
+      "notes": "Political context (Collins re-election race) is in the sources and must stay out of the item. Official White House proclamation reported by three outlets."
+    },
+    {
+      "event": "Moody's keeps France's Aa3 rating with a negative outlook; French 10-year yield at its highest since 2002",
+      "date": "2026-10-23",
+      "sources": ["CNBC World"],
+      "facts": [
+        {"claim": "Moody's on Friday kept France's Aa3 credit rating and its negative outlook, citing political fragmentation impairing the legislature", "id": "s301", "quote": "Rating agency Moody's on Friday kept its Aa3 credit rating on France"},
+        {"claim": "The 10-year French yield rose 11 basis points on Thursday to its highest level since 2002", "id": "s301", "quote": "climbed 11 basis points Thursday to its highest level since 2002"},
+        {"claim": "Government aims to cut the deficit to 5% of GDP in 2027 from a projected 5.4% in 2026; the National Assembly resumes debate on the budget's tax measures on 27 October", "id": "s301", "quote": "The National Assembly is due to resume debating on the budget's tax measures, which are intended to generate savings, on Oct. 27"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Single outlet in the bundle, but rating action is an official act and the yield is a published figure. Unrest/protest context stays out of the item."
+    },
+    {
+      "event": "Super Power acquires the household-electricity customer portfolio of Paz Gas Energy, the first merger in Israel's private electricity supply market",
+      "date": "2026-10-23",
+      "sources": ["Globes"],
+      "facts": [
+        {"claim": "Super Power announced to the stock exchange that it is buying competitor Paz Gas Energy, cutting the number of household electricity suppliers from seven to six", "id": "s097", "quote": "ספקית החשמל הביתי סופר פאוור רוכשת את המתחרה פז גז אנרג'י, ובכך מצטמצם מספר המתחרות בתחום משבע לשש בלבד"},
+        {"claim": "Payment up to 25 million shekels; expected added annual revenue about 130 million shekels", "id": "s097", "quote": "תשלם תמורת הרכישה עד 25 מיליון שקל"},
+        {"claim": "About 450 thousand households have already moved to private electricity suppliers", "id": "s097", "quote": "כיום, כ־450 אלף משקי בית כבר עברו לספקי חשמל פרטיים"}
+      ],
+      "primary_source": true,
+      "conflicts": "Globes gives payment as up to 25 million shekels and also 23-25 million shekels in the body; the first stage is 15 million plus 8-10 million.",
+      "notes": "Source is a company filing reported by Globes only. Borderline on impact; may need approval of the Competition Authority (not stated in the text I read)."
+    },
+    {
+      "event": "Dalia Energy files for international arbitration in London over the cancelled Leviathan gas deal with NewMed and Ratio",
+      "date": "2026-10-22",
+      "sources": ["Globes"],
+      "facts": [
+        {"claim": "Dalia filed a request to open arbitration at the London Court of International Arbitration against NewMed Energy and Ratio", "id": "s098", "quote": "דליה הגישה אתמול בקשה לפתיחת הליך בוררות בבית הדין הבינלאומי לבוררות בלונדון (LCIA)"},
+        {"claim": "The deal is a 20-year gas supply from 2030 to 2050 at 4.7 dollars per heat unit, signed in May; the sellers announced its cancellation on 24 September citing unmet conditions", "id": "s098", "quote": "מדובר בהתקשרות ל-20 שנה, מ-2030 ועד 2050, במחיר של 4.7 דולר ליחידת חום"}
+      ],
+      "primary_source": false,
+      "conflicts": "The parties dispute whether the deal was validly cancelled; Dalia claims Competition Authority approval came within the agreed timeframe.",
+      "notes": "A filing by one party in a formal proceeding; describe only as filed, not the merits. Borderline durability."
+    },
+    {
+      "event": "Volvo Cars to cut 2,500 jobs after a third-quarter operating loss",
+      "date": "2026-10-23",
+      "sources": ["CNBC World"],
+      "facts": [
+        {"claim": "Volvo Cars announced a plan to cut 2,500 jobs after a decline in its Chinese market hit third-quarter results", "id": "s322", "quote": "Volvo Cars said Friday it plans to cut 2,500 jobs after a sharp decline in its Chinese market weighed on third-quarter earnings."},
+        {"claim": "Operating loss of 5.6 billion Swedish kronor in the quarter, versus an operating profit of 6.4 billion in the previous period; China revenues fell almost 50% year on year", "id": "s322", "quote": "reported an operating loss of 5.6 billion Swedish kronor ($563.7 million) in the third quarter"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Company results; foreign, limited relevance to Israeli readers. Low-to-medium impact."
+    },
+    {
+      "event": "Brent crude passes 117 dollars a barrel, the highest since April",
+      "date": "2026-10-23",
+      "sources": ["The Guardian World", "Globes"],
+      "facts": [
+        {"claim": "Brent rose about 3.5% on Friday to pass 117 dollars at one point, the highest since April; it was about 72 dollars in February before the Iran war", "id": "s202", "quote": "Brent crude, the international benchmark for oil, rose by about 3.5% on Friday to pass $117 a barrel at one point"},
+        {"claim": "Globes: Brent 117.10 dollars and WTI 102.98 dollars at the Friday close in Wall Street trading", "id": "s095", "quote": "WTI עלה ל-102.98 דולר וברנט ל-117.10 דולר"}
+      ],
+      "primary_source": false,
+      "conflicts": "Guardian says the price later eased to just over 116 dollars.",
+      "notes": "A market move, not a decision; attribution of the cause is analyst speculation (excluded). Include only as a measured price level if the editor wants it. Low durability."
+    }
+  ],
+  "dropped": [
+    {"event": "Netanyahu says Israel must prepare for banking sanctions and floats crypto bypass; end of US aid", "ids": ["s083", "s017", "s079"], "reason": "rhetoric"},
+    {"event": "UK Your First Home scheme income limits (110,000 / 140,000 pounds)", "ids": ["s129"], "reason": "unconfirmed (expected to be confirmed at the UK Budget; The Times report)"},
+    {"event": "Pimi fund offers 200 million shekels for 50% of Mitronics", "ids": ["s096"], "reason": "low impact (non-binding offer, subject to due diligence)"},
+    {"event": "Tel Aviv and Wall Street weekly closes", "ids": ["s094", "s095"], "reason": "low impact"},
+    {"event": "American Express cuts 5% of staff; Barclays 5,000 jobs", "ids": ["s315"], "reason": "low impact"},
+    {"event": "Saab orders triple in Q3", "ids": ["s326"], "reason": "low impact"},
+    {"event": "UK inflation / Isle of Man inflation 3%", "ids": ["s137"], "reason": "already published (UK inflation) / low impact"},
+    {"event": "TikTok US seeks computing capacity", "ids": ["s308"], "reason": "unconfirmed (sources tell CNBC)"}
+  ],
+  "notes_for_editor": "Calendar-relevant items found in this section's reading: UK Budget on 28 October (s135, chancellor stated as John Healey); French National Assembly resumes budget debate 27 October and union-backed strike day 5 November (s301). Not verified against an official announcement."
+}

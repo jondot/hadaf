@@ -1,0 +1,91 @@
+{
+  "section": "יומן",
+  "candidates": [
+    {
+      "event": "Israel moves to winter time overnight Saturday to Sunday",
+      "date": "2026-10-25",
+      "sources": ["Ynet", "Haaretz"],
+      "facts": [
+        {"claim": "Clocks go back one hour at 02:00 in the night between 24 and 25 October 2026", "id": "s009",
+         "quote": "שעון החורף ייכנס לתוקפו בלילה שבין 24 ל-25 באוקטובר 2026 (בין שבת לראשון) בשעה 02:00 יחזרו מחוגי השעון שעה אחת אחורה"},
+        {"claim": "Winter time lasts until the switch to summer time on 26 March 2027", "id": "s009",
+         "quote": "שעון החורף יימשך עד המעבר לשעון קיץ ב-26 במרץ 2027."},
+        {"claim": "Haaretz: clocks move back from 2 A.M. to 1 A.M., winter time until 26 March 2027", "id": "s065",
+         "quote": "with clocks moving back one hour from 2 A.M. to 1 A.M."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Already published in the previous issue (25.10); still upcoming tonight. Relisted only because sourced in today's bundle."
+    },
+    {
+      "event": "Knesset (26th) elections on Tuesday 27 October; rain and thunderstorms forecast for election day",
+      "date": "2026-10-27",
+      "sources": ["Al Jazeera", "Ynet"],
+      "facts": [
+        {"claim": "Election day for the 26th Knesset is Tuesday 27 October", "id": "s011",
+         "quote": "ביום שלישי, יום הבחירות לכנסת ה-26, צפוי שינוי במזג האוויר"},
+        {"claim": "Al Jazeera gives the date of the Israeli polls as 27 October", "id": "s173",
+         "quote": "As he seeks re-election in Israel’s October 27 polls"},
+        {"claim": "Weather service forecast: local rain across most of the country on election day, stronger from noon in the south with thunderstorms and flood risk in southern Negev streams, the Arava and Dead Sea", "id": "s011",
+         "quote": "גשמים מקומיים צפויים לרדת ברוב אזורי הארץ, ומשעות הצהריים הם יתחזקו בעיקר בדרום וילוו בסופות רעמים"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Already published in the previous issue (27.10). The weather forecast is the only new element; no new official election announcement in the bundle (polls and campaign items excluded)."
+    },
+    {
+      "event": "Serbia holds a parliamentary election on Sunday 25 October",
+      "date": "2026-10-25",
+      "sources": ["DW", "BBC World", "Haaretz"],
+      "facts": [
+        {"claim": "Serbia's parliamentary election is on Sunday, with the student-led Student List challenging the ruling party", "id": "s243",
+         "quote": "The Student List is calling for an end to the current regime in Serbia via the ballot box in Sunday's parliamentary election."},
+        {"claim": "Haaretz places the Serbian vote two days before the Israeli election", "id": "s066",
+         "quote": "Serbs head to the polls Sunday, just two days before Israelis"},
+        {"claim": "BBC: the Student List has 250 candidates", "id": "s103",
+         "quote": "have chosen 250 candidates to stand in the parliamentary election"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Sunday = 25 October, derived from articles dated Friday/Saturday 23-24 October and Haaretz's 'two days before Israelis' (27 October). Polling projections excluded."
+    },
+    {
+      "event": "Brazil presidential run-off between Lula and Flavio Bolsonaro on Sunday 25 October",
+      "date": "2026-10-25",
+      "sources": ["BBC World"],
+      "facts": [
+        {"claim": "Lula and Flavio Bolsonaro face each other in a run-off on Sunday; Bolsonaro won the first round", "id": "s121",
+         "quote": "Bolsonaro won that vote - and now the two men face a run-off on Sunday."},
+        {"claim": "Voting is compulsory in Brazil", "id": "s121",
+         "quote": "as voting is compulsory in Brazil - not going to the polls incurs a fine"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Date inferred from article dated Saturday 24 October ('Sunday' = 25 October). Another item (s184, Guardian podcast) also says 'runoff on Sunday'."
+    },
+    {
+      "event": "US eases some tariffs on Canadian goods from 30 October",
+      "date": "2026-10-30",
+      "sources": ["BBC World"],
+      "facts": [
+        {"claim": "From 30 October tariffs will be eased on plywood, some paper products, certain machinery and refrigeration equipment, per the White House", "id": "s104",
+         "quote": "From 30 October, tariffs will be eased on products including \"plywood sheets, some paper products, certain machinery and refrigeration equipment\", the White House said on Friday."},
+        {"claim": "Tariffs will be introduced on other items such as carpets and waste products", "id": "s104",
+         "quote": "they would be introduced on other items such as carpets and \"waste products\"."},
+        {"claim": "The US imposed a 50% levy on $20bn of Canadian goods after talks collapsed in August", "id": "s104",
+         "quote": "The US imposed a 50% levy on $20bn (£15bn) worth of Canadian goods after trade talks between the two countries collapsed in August."}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Announced by the White House (relayed by BBC); of limited relevance to an Israeli audience, possibly borderline. Also reported by The Guardian (s210) without confirmed date in the index."
+    }
+  ],
+  "dropped": [
+    {"event": "Free public transport on 26.10", "ids": [], "reason": "no source in today's bundle (grep for public-transport items found only s020, unrelated)"},
+    {"event": "COP17 biodiversity summit in Yerevan", "ids": ["s168"], "reason": "opinion piece; end date not in text; low impact"},
+    {"event": "US midterms and California billionaire tax vote", "ids": ["s123", "s108"], "reason": "dates fall outside the next seven days and are not stated in the text"},
+    {"event": "Hunter's Moon full moon Sunday night", "ids": ["s149"], "reason": "low impact"},
+    {"event": "Bolivian teachers' strike", "ids": ["s158"], "reason": "ongoing strike, not a declared future event; low impact"},
+    {"event": "Election polls and campaign items", "ids": ["s016", "s046", "s047", "s073", "s078"], "reason": "polls"}
+  ]
+}

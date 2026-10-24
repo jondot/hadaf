@@ -1,0 +1,133 @@
+{
+ "section": "עולם",
+ "candidates": [
+  {
+   "event": "הפסקת אש מקומית באולשקי שבאוקראינה, בתיווך ארה״ב, לצורך סיוע הומניטרי ופינוי אזרחים",
+   "date": "2026-10-29",
+   "sources": ["Euronews", "DW"],
+   "facts": [
+    {"claim": "הבית הלבן הודיע שרוסיה ואוקראינה הסכימו להפסקת אש מקומית בעיר אולשקי הכבושה, שתחל ב־29 באוקטובר", "id": "s298", "quote": "The localised ceasefire is scheduled to begin on 29 October"},
+    {"claim": "לפי הבית הלבן נותרו בעיר 1,700 עד 2,000 תושבים מתוך כ־24 אלף לפני המלחמה", "id": "s298", "quote": "only 1,700 to 2,000 remain, including around 50 children"},
+    {"claim": "נציב זכויות האדם של אוקראינה אישר את סדר הצעדים: הפסקת אש, אספקת סיוע ויציאה חופשית של אזרחים", "id": "s236", "quote": "first a ceasefire will be put in place; second, humanitarian aid will be delivered to Oleshky"},
+    {"claim": "רוסיה אישרה את ההסכם ואמרה שתפסיק אש מוקדם יותר מהמועד שהודיע הבית הלבן", "id": "s236", "quote": "Russia also confirmed the agreement and said it will halt fire earlier"}
+   ],
+   "primary_source": true,
+   "conflicts": "מועד תחילת ההפסקה: 29.10 לפי הבית הלבן (s298); רוסיה אמרה שתפסיק אש מוקדם יותר, ב־27.10 (s236). משך ההפסקה לא צוין (s298)",
+   "notes": "Euronews מציין שלא ניתן לאמת באופן עצמאי את המצב בעיר ושהשאלה איך יפוקח ההסכם פתוחה"
+  },
+  {
+   "event": "ארה״ב: הכרזה נשיאותית משנה את רשימת המוצרים הקנדיים החייבים במכס של 50%, בתוקף מ־30.10",
+   "date": "2026-10-30",
+   "sources": ["BBC", "CNBC"],
+   "facts": [
+    {"claim": "הנשיא חתם על הכרזה המסירה מוצרים מסוימים מרשימת המכס של 50% על סחורות קנדיות ומחליפה אותם במוצרים אחרים", "id": "s303", "quote": "signed a proclamation \"removing certain products\" from the list of items that he slapped 50% tariffs on"},
+    {"claim": "השינויים נכנסים לתוקף ב־30 באוקטובר", "id": "s303", "quote": "will take effect Oct. 30"},
+    {"claim": "המכס יוקל, בין השאר, על לוחות דיקט, מוצרי נייר, ציוד קירור ומכונות מסוימים, ויוטל על מוצרים כמו שטיחים ו״פסולת״", "id": "s104", "quote": "tariffs will be eased on products including \"plywood sheets, some paper products, certain machinery and refrigeration equipment\""},
+    {"claim": "המכס של 50% הוטל על סחורות קנדיות בהיקף 20 מיליארד דולר אחרי שהמשא ומתן קרס באוגוסט", "id": "s104", "quote": "The US imposed a 50% levy on $20bn (£15bn) worth of Canadian goods after trade talks between the two countries collapsed in August."}
+   ],
+   "primary_source": true,
+   "conflicts": "",
+   "notes": "הרקע הפוליטי (סנטורית קולינס, בחירות) לא נכלל; הליבה היא הכרזה רשמית ותאריך תוקף. ייתכן שמתאים גם לסעיף הכלכלה"
+  },
+  {
+   "event": "מודי׳ס השאירה את דירוג האשראי של צרפת על Aa3 עם אופק שלילי",
+   "date": "2026-10-23",
+   "sources": ["Euronews"],
+   "facts": [
+    {"claim": "מודי׳ס שמרה על הדירוג Aa3 עם אופק שלילי, אף שהשווקים ציפו להורדה", "id": "s275", "quote": "the New York-based agency on Friday evening maintained its assessment at Aa3 with a negative outlook"},
+    {"claim": "לפי מודי׳ס הדירוג מבוסס על ההנחה שיתקבל תקציב 2027 שיצמצם את הגירעון", "id": "s275", "quote": "the Aa3 rating is based on the assumption that a 2027 budget reducing the deficit will be adopted"},
+    {"claim": "התשואה על אג״ח ממשלתי צרפתי ל־10 שנים עברה השבוע את 5.1%, לעומת 3.2% לפני המלחמה בין ארה״ב לאיראן", "id": "s275", "quote": "France's 10-year borrowing rate broke through the 5.1% mark, compared with 3.2% before the start of the war"}
+   ],
+   "primary_source": false,
+   "conflicts": "",
+   "notes": "מקור יחיד בצרור; החלטת דירוג היא עובדה מתועדת. אולי שייך יותר לסעיף הכלכלה"
+  },
+  {
+   "event": "קניה: מוות שני מאבולה; הווירוס בניגריה דומה לזן שבקניה",
+   "date": "2026-10-23",
+   "sources": ["BBC", "DW"],
+   "facts": [
+    {"claim": "משרד הבריאות בקניה הודיע על מות אישה בת 65, קרובת משפחה של הקורבן הראשון, מאבולה", "id": "s106", "quote": "A woman, aged 65, who was a close family member of the first victim"},
+    {"claim": "שבעה חולים נוספים מטופלים, כולם באשכול אחד, ללא עדות להדבקה בקהילה", "id": "s106", "quote": "one cluster, with no evidence of community spread"},
+    {"claim": "שר הבריאות של ניגריה אמר שהמקרה היחיד שאושר שם קשור גנטית לזן שזוהה בקניה", "id": "s106", "quote": "Nigeria's health minister said its sole confirmed case of Ebola appeared to be genetically related to a strain identified earlier in Kenya."},
+    {"claim": "לפי נתוני ארגון הבריאות העולמי נכון ל־20 באוקטובר: מעל 9,700 מקרים מאומתים ו־4,690 מקרי מוות בהתפרצות", "id": "s232", "quote": "infections have surpassed 9,700 confirmed cases, including 4,690 deaths"},
+    {"claim": "אוגנדה הודיעה שמי שהיה בקונגו לא יוכל לעבור דרכה במעבר", "id": "s106", "quote": "would no longer be able to transit via Uganda"}
+   ],
+   "primary_source": true,
+   "conflicts": "BBC: יותר מ־4,000 מתים באפריקה מאז מאי (s106); DW לפי ארגון הבריאות העולמי: 4,690 מקרי מוות (s232)",
+   "notes": "הסיפור נמשך; החידוש הוא המוות השני והקשר הגנטי"
+  },
+  {
+   "event": "הודו הטילה תקרת שולי רווח של 30% על 137 תרופות סרטן נוספות",
+   "date": "2026-11-01",
+   "sources": ["The Guardian"],
+   "facts": [
+    {"claim": "הממשלה הטילה תקרה של 30% על שולי המסחר ב־137 תרופות סרטן נוספות, בעקבות ממצאי בית המשפט העליון", "id": "s203", "quote": "the government has imposed the cap on 137 other drugs"},
+    {"claim": "משרד התרופות מעריך שהמהלך יוזיל מחירים בעד 70% ויחסוך לחולים 2,500 קרוד רופי בשנה", "id": "s203", "quote": "The measure is expected to reduce medicine prices by up to 70%"},
+    {"claim": "בית המשפט העליון נתן לממשלה עד 27 באוקטובר להשיב מדוע התקרה אינה חלה על כל התרופות שאינן מוגנות בפטנט", "id": "s203", "quote": "The court has given the government until 27 October to respond."}
+   ],
+   "primary_source": true,
+   "conflicts": "",
+   "notes": "מקור יחיד (Guardian) המצטט הודעת משרד התרופות. המאמר אומר 'מהחודש הבא' ללא תאריך מדויק, ולכן שדה date משוער"
+  },
+  {
+   "event": "ארה״ב: משרד האנרגיה הכריז על הליום כחומר קריטי",
+   "date": "2026-10-23",
+   "sources": ["Euronews"],
+   "facts": [
+    {"claim": "ארה״ב הכריזה על הליום כחומר קריטי, מה שיאפשר מימון פדרלי נוסף ליצרנים ופיקוח הדוק יותר", "id": "s285", "quote": "will make additional federal funding available to helium producers and bring the material under closer government monitoring"},
+    {"claim": "יצוא ההליום מקטאר הופרע בשל סגירת מצר הורמוז, וסין הטילה ביולי איסור יצוא זמני", "id": "s285", "quote": "China's decision in July to impose a temporary export ban on the gas"}
+   ],
+   "primary_source": true,
+   "conflicts": "",
+   "notes": "מקור יחיד; השפעה על הקוראים מוגבלת, אך מקושר לשוק השבבים"
+  },
+  {
+   "event": "ארגנטינה: החקירה הפלילית נגד הנשיא מילאי בפרשת המטבע $Libra נסגרה",
+   "date": "2026-10-23",
+   "sources": ["BBC"],
+   "facts": [
+    {"claim": "שופט פדרלי סגר, לבקשת התביעה, את התיק נגד מילאי ואחותו", "id": "s113", "quote": "dismissed by federal judge Marcelo Martinez de Giorgi at the request of prosecutors"},
+    {"claim": "השופט קבע שלא הוכחה הונאה בעלת רלוונטיות פלילית", "id": "s113", "quote": "no \"criminally relevant deception\" had been proven"}
+   ],
+   "primary_source": true,
+   "conflicts": "",
+   "notes": "החלטת בית משפט; השפעה מוגבלת על הקוראים"
+  },
+  {
+   "event": "ירדן: ירי בכנסייה בכרך בזמן הלוויה, 7 הרוגים ו־34 פצועים",
+   "date": "2026-10-23",
+   "sources": ["DW"],
+   "facts": [
+    {"claim": "מנהל הביטחון הציבורי בירדן מסר ש־7 נהרגו ו־34 נפצעו בירי בכנסייה במחוז כרך", "id": "s235", "quote": "left seven people dead and another 34 wounded on Friday, Jordan's public security director Obaidallah Maaytah said"},
+    {"claim": "שר הפנים אמר שקבוצת ״קיצונים״ ביצעה את הטבח; זהות החשודים לא פורסמה ונפתחה חקירה", "id": "s235", "quote": "said a group of \"extremists\" carried out the massacre"}
+   ],
+   "primary_source": true,
+   "conflicts": "",
+   "notes": "אירוע ללא החלטה. דברי המלך הם רטוריקה ולא נכללו. BBC ו־Guardian מדווחים על אותו אירוע (s111, s200)"
+  },
+  {
+   "event": "סרביה: בחירות לפרלמנט ביום ראשון 25.10",
+   "date": "2026-10-25",
+   "sources": ["DW"],
+   "facts": [
+    {"claim": "בחירות לפרלמנט בסרביה ייערכו ביום ראשון, אחרי כשנתיים של הפגנות סטודנטים", "id": "s243", "quote": "in Sunday's parliamentary election"}
+   ],
+   "primary_source": false,
+   "conflicts": "",
+   "notes": "מועמד ליומן בלבד; ללא סקרים. אין הודעה רשמית של ועדת הבחירות בצרור"
+  }
+ ],
+ "dropped": [
+  {"event": "שריפה ב״קן הנשרים״", "ids": ["s101", "s165", "s197"], "reason": "low impact"},
+  {"event": "הפגנות בצרפת, פריסת 70,000 שוטרים וירי בפרבר פריז", "ids": ["s231", "s268", "s114"], "reason": "ongoing; motive unconfirmed; police statements only"},
+  {"event": "תביעת משרד המשפטים נגד אישור הבחירות באלסקה", "ids": ["s108", "s317"], "reason": "election politics; no ruling yet"},
+  {"event": "ביקור קים ג׳ונג און בסין", "ids": ["s185"], "reason": "unconfirmed by Pyongyang or Beijing"},
+  {"event": "רעידת אדמה בטיבט", "ids": ["s188"], "reason": "casualties from state media only; dated 23.10"},
+  {"event": "עינויים באזרח האמריקאי ששוחרר", "ids": ["s115"], "reason": "unconfirmed claim"},
+  {"event": "פעולות ישראל בגדה", "ids": ["s157", "s201"], "reason": "Israel section"},
+  {"event": "קריסת בניין בניירובי", "ids": ["s107"], "reason": "low impact"},
+  {"event": "קיצוץ מימון אמריקאי לאוניברסיטה באפגניסטן", "ids": ["s237"], "reason": "low impact"},
+  {"event": "מועמדות נוסייבה לאו״ם", "ids": ["s291"], "reason": "already published"}
+ ]
+}

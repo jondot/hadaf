@@ -1,0 +1,101 @@
+{
+  "section": "טכנולוגיה",
+  "candidates": [
+    {
+      "event": "Moonshot AI (Kimi) released the open-weight model Kimi K3.1 Pro",
+      "date": "2026-10-23",
+      "sources": ["Kimi blog (Hacker News)"],
+      "facts": [
+        {"claim": "Kimi K3.1 Pro was introduced as the first model in the K3.1 series, an open-weight model with a 1-million-token context window", "id": "s407", "quote": "our most capable 3T-class open-weight model to date, with a 1-million-token context window"},
+        {"claim": "The model and a faster variant are available now through Kimi's products and API; full weights are due by November 4", "id": "s407", "quote": "The full model weights will be released by Nov 4."},
+        {"claim": "The company reports 65.7% on Terminal-Bench 4.0, ahead of GPT-6 Astra (58.2%) and just behind Claude Opus 5.5 (66.4%); these are the developer's own reported results", "id": "s407", "quote": "K3.1 Pro scores 65.7%, ahead of GPT-6 Astra (58.2%) and narrowly behind Claude Opus 5.5 (66.4%)"},
+        {"claim": "The developer says it removed cyber-related data from training; vulnerability-exploit benchmark success fell from 90.5% to 81.0% versus a checkpoint without the measures", "id": "s407", "quote": "solves 90.5% of problems at pass@3; the final K3.1 Pro reaches 81.0%"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Primary source is the vendor's own announcement; benchmark figures are self-reported and must be attributed. HN 913 points."
+      ,"hn": {"points": 913, "comments": 530}
+    },
+    {
+      "event": "OBS Studio 33.0 released",
+      "date": "2026-10-24",
+      "sources": ["OBS Studio release notes (Hacker News)"],
+      "facts": [
+        {"claim": "OBS Studio 33.0 overhauls plugin loading: first-party plugins move to a new folder and third-party plugins get a new install location; old locations keep working until version 34.0", "id": "s416", "quote": "Existing third-party plugins will continue to load from the legacy locations until OBS Studio 34.0"},
+        {"claim": "The embedded browser framework (CEF) was upgraded from version 127 to 150, a change the developers say should be invisible to users", "id": "s416", "quote": "Updated CEF from 127/6533 to 150/7871"},
+        {"claim": "Hardware video encoding (NVENC) is enabled on Arm64", "id": "s416", "quote": "Enabled NVENC on Arm64"},
+        {"claim": "Support for Ubuntu 24.04 was removed", "id": "s416", "quote": "Removed support for Ubuntu 24.04"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Release notes are the primary source. HN 148 points; widely used free streaming/recording software."
+      ,"hn": {"points": 148, "comments": 38}
+    },
+    {
+      "event": "Physicists trapped a single positron (antimatter particle) for a month",
+      "date": "2026-10-21",
+      "sources": ["Scientific American (Hacker News)"],
+      "facts": [
+        {"claim": "A team led by Gerald Gabrielse of Northwestern University reported in Physical Review Letters that it isolated a single positron for a month", "id": "s430", "quote": "This method allowed the researchers to isolate and study a solitary, lone positron for a month"},
+        {"claim": "The report was published on Wednesday in Physical Review Letters", "id": "s430", "quote": "The team reported its achievement on Wednesday in Physical Review Letters."},
+        {"claim": "The goal is to measure the positron's magnetic moment and compare it to the electron's; the Standard Model predicts exactly opposite values", "id": "s430", "quote": "We’re looking to see if they have an exactly opposite magnetic moment,"}
+      ],
+      "primary_source": false,
+      "conflicts": "The lede says 'for months at a time', the body says 'for a month'.",
+      "notes": "Science item rather than software; fits 'published research and measured results'. Article dated 2026-10-21; paper reported Wednesday (10-21). HN 42 points, low."
+      ,"hn": {"points": 42, "comments": 14}
+    },
+    {
+      "event": "Google updated its privacy policy so Gmail and Photos data may inform ads via Personal Intelligence",
+      "date": "2026-10-16",
+      "sources": ["Ars Technica"],
+      "facts": [
+        {"claim": "On October 16 Google updated its privacy policy; it previously said it did not show personalized ads based on content from Drive, Gmail or Photos", "id": "s377", "quote": "We don’t show you personalized ads based on your content from Drive, Gmail, or Photos,"},
+        {"claim": "Google says connecting apps is opt-in and ads will not be based directly on the Gmail inbox or Photos library", "id": "s377", "quote": "Ads will not be based directly on your Gmail inbox or Photos library"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Not from HN list; Ars interpretation ('dismantle that firewall') is analysis, use only Google's statement and the policy change. Policy text itself is not quoted in the file."
+    },
+    {
+      "event": "Canada's Bill C-22 (Lawful Access Act) is before the Senate",
+      "date": "2026-10-22",
+      "sources": ["Electronic Frontier Foundation (Hacker News)"],
+      "facts": [
+        {"claim": "Bill C-22 has passed the House of Commons and is now before the Canadian Senate", "id": "s410", "quote": "has already passed the House of Commons, and is now before the Canadian Senate."},
+        {"claim": "The bill would let the Public Safety Minister order companies to create a backdoor for law enforcement, provided it does not lead to a 'systemic insecurity'", "id": "s410", "quote": "allows Canada’s Minister of Public Safety to order companies to create a backdoor to their services for law enforcement"},
+        {"claim": "The bill requires services to retain metadata for up to a year", "id": "s410", "quote": "It also requires services to retain metadata for up to a year"}
+      ],
+      "primary_source": false,
+      "conflicts": "",
+      "notes": "Source is an advocacy post (EFF) with strongly editorial framing; only the legislative status and described provisions are usable, and a second, neutral source is not in the bundle. Likely drop."
+      ,"hn": {"points": 415, "comments": 219}
+    },
+    {
+      "event": "Astral announced an experimental uv-ty integration and a 'uv check' command for Python",
+      "date": "2026-10-20",
+      "sources": ["Astral blog (Hacker News)"],
+      "facts": [
+        {"claim": "Astral announced an experimental integration between its uv package manager and ty type checker, adding a unified uv check command", "id": "s415", "quote": "Experimental uv-ty integration is now available, enabling first-class support for Python scripts"},
+        {"claim": "It requires uv 0.12.3 or later and ty 0.0.76 or later", "id": "s415", "quote": "requires uv 0.12.3 or later, and ty 0.0.76 or"}
+      ],
+      "primary_source": true,
+      "conflicts": "",
+      "notes": "Experimental preview feature of a niche developer tool, article is from 10-20; low relevance to general readers. Borderline."
+      ,"hn": {"points": 153, "comments": 36}
+    }
+  ],
+  "dropped": [
+    {"event": "Calif security team demos of iPhone hack at Hexacon", "ids": ["s408"], "reason": "unconfirmed (demos only, no details or advisory; 'Everything will be released in due time')"},
+    {"event": "Switch 2 partial jailbreak via SmileBasic exploit", "ids": ["s389"], "reason": "low impact (single researcher, console homebrew; no official response in text)"},
+    {"event": "Local Wikipedia", "ids": ["s406"], "reason": "low impact (personal project, essay-like)"},
+    {"event": "Apple Music 404 page", "ids": ["s409"], "reason": "low impact; only a feed summary with no text"},
+    {"event": "Dessa conversation model", "ids": ["s411"], "reason": "marketing"},
+    {"event": "Apple Security Research Device", "ids": ["s426"], "reason": "old program page, not news"},
+    {"event": "GrapheneOS banking apps", "ids": ["s427"], "reason": "single source; title only, no text"},
+    {"event": "Samsung TV AI hack", "ids": ["s420"], "reason": "unconfirmed (Reddit post)"},
+    {"event": "Red-team report on OpenAI agents monitoring", "ids": ["s393"], "reason": "not enough text (only link list in file)"},
+    {"event": "Show HN / essays / tutorials (Corgi, UUIDv7, FP vs C, C vs C#, Kevin Bacon, music, air purifiers)", "ids": ["s424", "s417", "s421", "s425", "s412", "s418", "s419", "s423"], "reason": "excluded topic"},
+    {"event": "ThinkRail, Block Blast breakdown, CVE Tracker, distributed SQLite", "ids": ["s434", "s428", "s414", "s413"], "reason": "marketing / low impact"}
+  ]
+}
