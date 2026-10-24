@@ -1,0 +1,139 @@
+name: Daily issue
+
+# The whole daily run, on GitHub's machines:
+#   1. fetch_news.py collects the day's feeds, Hacker News and article texts into work/<date>/ (no AI)
+#   2. fetch_data.py fetches weather, rates and Shabbat times (no AI)
+#   3. Claude (Claude Code GitHub Action, on your subscription) writes and verifies the issue from
+#      the bundle only. It has no web tools and no git: it can't stall on a permission prompt.
+#   4. check_issue.py is the gate. If it fails, nothing is published and the run is marked failed
+#      (GitHub emails you).
+#   5. The issue files are committed to main and the site is deployed.
+#
+# Schedule (UTC): 03:15 is 06:15 in Israel in summer and 05:15 in winter. The 04:15 run is a
+# retry in case GitHub delays or skips the first; it does nothing if today's issue exists.
+# Pushing to the `dry-run` branch runs everything but publishes to the `dry-run-result` branch.
+
+on:
+  schedule:
+    - cron: "15 3 * * *"
+    - cron: "15 4 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Issue date (YYYY-MM-DD). Empty = today in Israel."
+        required: false
+  push:
+    branches: [dry-run]
+
+permissions:
+  contents: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref == 'refs/heads/dry-run' && 'dry-run' || 'main' }}
+          fetch-depth: 0
+
+      - name: Settings
+        id: s
+        run: |
+          D="${{ inputs.date }}"
+          [ -z "$D" ] && D=$(TZ=Asia/Jerusalem date +%F)
+          echo "date=$D" >> "$GITHUB_OUTPUT"
+          echo "path=issues/${D:0:4}/${D:5:2}/${D:8:2}" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.ref }}" = "refs/heads/dry-run" ]; then echo "dry=true" >> "$GITHUB_OUTPUT"; else echo "dry=false" >> "$GITHUB_OUTPUT"; fi
+          if [ -f "issues/${D:0:4}/${D:5:2}/${D:8:2}.md" ]; then echo "exists=true" >> "$GITHUB_OUTPUT"; else echo "exists=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Already published today
+        if: steps.s.outputs.exists == 'true'
+        run: echo "Issue for ${{ steps.s.outputs.date }} already exists; nothing to do."
+
+      - uses: actions/setup-python@v5
+        if: steps.s.outputs.exists == 'false'
+        with:
+          python-version: "3.12"
+
+      - name: Fetch the news bundle
+        if: steps.s.outputs.exists == 'false'
+        run: |
+          pip install --quiet trafilatura
+          python scripts/fetch_news.py --date "${{ steps.s.outputs.date }}" | tee fetch-news.log
+
+      - name: Fetch service data
+        if: steps.s.outputs.exists == 'false'
+        continue-on-error: true
+        run: python scripts/fetch_data.py --date "${{ steps.s.outputs.date }}"
+
+      - name: Write the issue (Claude)
+        id: claude
+        if: steps.s.outputs.exists == 'false'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /publish-issue
+            Today's date: ${{ steps.s.outputs.date }}. The news bundle is in work/${{ steps.s.outputs.date }}/.
+            You run unattended in GitHub Actions: never ask questions, never use git; the workflow commits
+            and publishes your files after scripts/check_issue.py passes.
+          claude_args: >-
+            --model claude-opus-5-5
+            --max-turns 300
+            --allowedTools "Read,Write,Edit,Glob,Grep,Agent,Task,TodoWrite,Bash(python3 scripts/check_issue.py:*),Bash(python3 scripts/build.py),Bash(date:*),Bash(ls:*)"
+            --disallowedTools "WebSearch,WebFetch"
+
+      - name: Quality gate
+        id: gate
+        if: steps.s.outputs.exists == 'false'
+        continue-on-error: ${{ steps.s.outputs.dry == 'true' }}
+        run: python scripts/check_issue.py "${{ steps.s.outputs.date }}" | tee gate.log
+
+      - name: Publish to main
+        if: steps.s.outputs.exists == 'false' && steps.s.outputs.dry == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          P="${{ steps.s.outputs.path }}"
+          N=$(grep -m1 '^number:' "$P.md" | awk '{print $2}')
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+          git add "$P.md" "$P.sources.json" "$P.check.md" "$P.notes.md"
+          [ -f "$P.data.json" ] && git add "$P.data.json"
+          { echo "Issue $N — ${{ steps.s.outputs.date }}"; echo; cat "$P.notes.md"; } > msg.txt
+          git commit -q -F msg.txt
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+          gh workflow run pages.yml --ref main
+
+      - name: Publish dry run to dry-run-result
+        if: always() && steps.s.outputs.exists == 'false' && steps.s.outputs.dry == 'true'
+        run: |
+          D="${{ steps.s.outputs.date }}"
+          mkdir -p dry
+          cp -r work/$D/report.json work/$D/cand-*.json work/$D/index.md work/$D/hn.md dry/ 2>/dev/null || true
+          cp fetch-news.log gate.log dry/ 2>/dev/null || true
+          [ -n "${{ steps.claude.outputs.execution_file }}" ] && cp "${{ steps.claude.outputs.execution_file }}" dry/claude-execution.json || true
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+          git add -f issues/ dry/
+          git commit -q -m "Dry run for $D" || true
+          git push -q -f origin HEAD:refs/heads/dry-run-result
+
+      - name: Keep the bundle for 14 days
+        if: always() && steps.s.outputs.exists == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-${{ steps.s.outputs.date }}-${{ github.run_attempt }}
+          path: |
+            work/
+            fetch-news.log
+            gate.log
+          retention-days: 14

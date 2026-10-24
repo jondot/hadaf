@@ -11,10 +11,10 @@ timezone = "Asia/Jerusalem"
 site_url = "https://jondot.github.io/hadaf"   # used for the RSS feed; leave "" if unknown
 
 [schedule]
-publish_time = "06:30"     # local time the daily run starts
-coverage_window_hours = 48 # how far back events may come from
+# The daily run is .github/workflows/daily.yml (cron in UTC there).
+coverage_window_hours = 36 # how far back the bundle reaches
 # Items younger than this many hours go in only when confirmed by an official primary source.
-settle_hours = 12
+settle_hours = 6
 
 [models]
 # Which model each role runs on. The editor (selection, writing) is the model the run starts with.
@@ -22,8 +22,9 @@ gather = "sonnet"          # one gatherer per section, in parallel: the bulk of 
 verify = "opus"            # the independent fact-checker
 
 [issue]
-min_items = 4              # a quiet day gets a shorter issue; never pad
+min_items = 6              # aim for at least this many news items
 max_items = 12
+publish_floor = 5          # fewer news items than this, and the run publishes nothing that day
 sections = ["ישראל", "כלכלה", "עולם", "טכנולוגיה", "מדע וסביבה"]
 analysis = true            # one dry, professional analysis piece per issue when a topic warrants it
 
@@ -33,21 +34,107 @@ audience = "קהילה בישראל. קוראים שרוצים לדעת מה ה�
 # Topics this paper skips entirely.
 exclude_topics = ["תוצאות ספורט", "סלבריטאים", "פשיעה שגרתית ללא משמעות מערכתית", "סקרי בחירות"]
 # Sources to prefer when searching. Primary/official sources always outrank these.
-preferred_sources = [
-  "Reuters", "AP", "AFP",
-  "בנק ישראל", "הלשכה המרכזית לסטטיסטיקה", "רשומות", "אתר הכנסת", "משטרת ישראל",
-  "Times of Israel", "Globes",
-  "Nature", "Science", "The Lancet",
-]
-avoid_sources = []         # outlets this paper never uses as a source
 
 [tech]
-# The tech section starts from Hacker News and is written from the primary sources.
-# These URLs must also appear, word for word, in the prompt of your daily scheduled task:
-# an unattended run may fetch only URLs it was given, and fetching any other asks you for permission.
+# The tech section starts from the Hacker News front page (fetched with the rest of the bundle)
+# and is written from each story's own article.
 section = "טכנולוגיה"
 max_items = 3
-lead_sources = ["https://news.ycombinator.com/", "https://news.ycombinator.com/best"]
+
+[news]
+# Raw material: scripts/fetch_news.py reads these feeds (and the Hacker News front page and
+# Wikipedia's "on this day") into work/<date>/ before Claude starts. Claude has no web access
+# for news; whatever is not in the bundle cannot be in the issue. Add or remove feeds freely:
+# a broken feed is reported and skipped. kind: news | official | science | tech.
+window_hours = 36
+max_per_feed = 30
+hn_items = 30
+fetch_text = true
+min_bundle_items = 60
+
+[[news.feeds]]
+name = "Times of Israel"
+url = "https://www.timesofisrael.com/feed/"
+[[news.feeds]]
+name = "Ynet"
+url = "https://www.ynet.co.il/Integration/StoryRss2.xml"
+lang = "he"
+[[news.feeds]]
+name = "Maariv"
+url = "https://www.maariv.co.il/Rss/RssChadashot"
+lang = "he"
+[[news.feeds]]
+name = "Walla"
+url = "https://rss.walla.co.il/feed/1"
+lang = "he"
+[[news.feeds]]
+name = "Jerusalem Post"
+url = "https://www.jpost.com/rss/rssfeedsheadlines.aspx"
+[[news.feeds]]
+name = "Globes"
+url = "https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=585"
+lang = "he"
+[[news.feeds]]
+name = "BBC World"
+url = "https://feeds.bbci.co.uk/news/world/rss.xml"
+[[news.feeds]]
+name = "BBC Middle East"
+url = "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml"
+[[news.feeds]]
+name = "BBC Business"
+url = "https://feeds.bbci.co.uk/news/business/rss.xml"
+[[news.feeds]]
+name = "BBC Science"
+url = "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+kind = "science"
+[[news.feeds]]
+name = "Al Jazeera"
+url = "https://www.aljazeera.com/xml/rss/all.xml"
+[[news.feeds]]
+name = "The Guardian World"
+url = "https://www.theguardian.com/world/rss"
+[[news.feeds]]
+name = "The Guardian Business"
+url = "https://www.theguardian.com/business/rss"
+[[news.feeds]]
+name = "The Guardian Science"
+url = "https://www.theguardian.com/science/rss"
+kind = "science"
+[[news.feeds]]
+name = "NPR World"
+url = "https://feeds.npr.org/1004/rss.xml"
+[[news.feeds]]
+name = "DW"
+url = "https://rss.dw.com/rdf/rss-en-all"
+[[news.feeds]]
+name = "France 24"
+url = "https://www.france24.com/en/rss"
+[[news.feeds]]
+name = "Euronews"
+url = "https://www.euronews.com/rss"
+[[news.feeds]]
+name = "CNBC World"
+url = "https://www.cnbc.com/id/100727362/device/rss/rss.html"
+[[news.feeds]]
+name = "Nature News"
+url = "https://www.nature.com/nature.rss"
+kind = "science"
+[[news.feeds]]
+name = "ScienceDaily"
+url = "https://www.sciencedaily.com/rss/top/science.xml"
+kind = "science"
+[[news.feeds]]
+name = "Phys.org"
+url = "https://phys.org/rss-feed/"
+kind = "science"
+[[news.feeds]]
+name = "Ars Technica"
+url = "https://feeds.arstechnica.com/arstechnica/index"
+kind = "tech"
+[[news.feeds]]
+name = "The Register"
+url = "https://www.theregister.com/headlines.atom"
+kind = "tech"
 
 [service]
 # The service box: weather, exchange rates, sun and Shabbat times. Fetched by scripts/fetch_data.py
