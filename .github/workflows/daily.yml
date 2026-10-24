@@ -115,6 +115,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # The Claude action rewrites git credentials while it runs; reset them to this workflow's token.
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
           P="${{ steps.s.outputs.path }}"
           N=$(grep -m1 '^number:' "$P.md" | awk '{print $2}')
           git config user.name "Claude"
@@ -128,7 +131,13 @@ jobs:
 
       - name: Publish dry run to dry-run-result
         if: always() && steps.s.outputs.exists == 'false' && steps.s.outputs.dry == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          # The Claude action rewrites git credentials while it runs; reset them to this workflow's token.
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+
           D="${{ steps.s.outputs.date }}"
           mkdir -p dry
           cp -r work/$D/report.json work/$D/cand-*.json work/$D/index.md work/$D/hn.md dry/ 2>/dev/null || true
