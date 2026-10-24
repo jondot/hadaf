@@ -11,7 +11,9 @@ name: Daily issue
 #
 # Schedule (UTC): 03:15 is 06:15 in Israel in summer and 05:15 in winter. The 04:15 run is a
 # retry in case GitHub delays or skips the first; it does nothing if today's issue exists.
-# Pushing to the `dry-run` branch runs everything but publishes to the `dry-run-result` branch.
+# Pushing to the `dry-run` branch starts a dry run: everything runs, but the result goes to the
+# `dry-run-result` branch. (The Claude action doesn't run on push events, so the push only relays
+# a workflow_dispatch on the dry-run branch.)
 
 on:
   schedule:
@@ -35,7 +37,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  relay:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run daily.yml --repo "${{ github.repository }}" --ref dry-run
+
   publish:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 80
     steps:

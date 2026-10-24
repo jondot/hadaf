@@ -68,6 +68,16 @@ name = "Walla"
 url = "https://rss.walla.co.il/feed/1"
 lang = "he"
 [[news.feeds]]
+name = "Ynetnews"
+url = "https://www.ynetnews.com/Integration/StoryRss3082.xml"
+[[news.feeds]]
+name = "Haaretz"
+url = "https://www.haaretz.com/srv/haaretz-latest-headlines"
+[[news.feeds]]
+name = "Calcalist"
+url = "https://www.calcalist.co.il/GeneralRSS/0,16335,L-8,00.xml"
+lang = "he"
+[[news.feeds]]
 name = "Jerusalem Post"
 url = "https://www.jpost.com/rss/rssfeedsheadlines.aspx"
 [[news.feeds]]

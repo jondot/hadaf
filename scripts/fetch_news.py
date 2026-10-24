@@ -34,7 +34,8 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG = tomllib.loads((ROOT / "newspaper.toml").read_text(encoding="utf-8"))
 NEWS = CONFIG["news"]
 TZ = ZoneInfo(CONFIG["paper"]["timezone"])
-UA = "Mozilla/5.0 (compatible; hadaf-newspaper/1.0; +https://github.com/jondot/hadaf)"
+UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+      "Chrome/128.0 Safari/537.36 hadaf-newspaper/1.0")
 MAX_TEXT = 15000
 
 try:
@@ -44,9 +45,15 @@ except ImportError:  # summaries only
 
 
 def get(url: str, timeout: int = 25) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, text/html, */*",
+        "Accept-Language": "he,en;q=0.8"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
+        data = r.read()
+    if data[:2] == b"\x1f\x8b":
+        import gzip
+        data = gzip.decompress(data)
+    return data
 
 
 def clean(s: str | None) -> str:
@@ -85,7 +92,15 @@ def text_of(el: ET.Element, *names: str) -> str:
 
 
 def parse_feed(raw: bytes) -> list[dict]:
-    root = ET.fromstring(raw)
+    raw = raw.lstrip(b"\xef\xbb\xbf \t\r\n")
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        # Some feeds declare one encoding and send another, or carry stray bytes: retry leniently.
+        txt = raw.decode("utf-8", "replace")
+        txt = re.sub(r"^<\?xml[^>]*\?>", "", txt).strip()
+        txt = re.sub(r"&(?!(?:[a-zA-Z]+|#\d+|#x[0-9a-fA-F]+);)", "&amp;", txt)
+        root = ET.fromstring(txt)
     entries = [e for e in root.iter() if local(e.tag) in ("item", "entry")]
     out = []
     for e in entries:
