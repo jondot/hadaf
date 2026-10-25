@@ -1,0 +1,435 @@
+{
+  "date": "2026-10-25",
+  "fetched_at": "2026-10-25T08:29:45+00:00",
+  "errors": [],
+  "weather": {
+    "source": "Open-Meteo",
+    "cities": [
+      {
+        "name": "ירושלים",
+        "days": [
+          {
+            "date": "2026-10-25",
+            "max": 27,
+            "min": 18,
+            "rain": 0,
+            "condition": "partly",
+            "sunrise": "05:49",
+            "sunset": "16:56"
+          },
+          {
+            "date": "2026-10-26",
+            "max": 26,
+            "min": 18,
+            "rain": 8,
+            "condition": "cloudy",
+            "sunrise": "05:50",
+            "sunset": "16:55"
+          },
+          {
+            "date": "2026-10-27",
+            "max": 24,
+            "min": 18,
+            "rain": 48,
+            "condition": "cloudy",
+            "sunrise": "05:51",
+            "sunset": "16:54"
+          },
+          {
+            "date": "2026-10-28",
+            "max": 21,
+            "min": 16,
+            "rain": 38,
+            "condition": "showers",
+            "sunrise": "05:51",
+            "sunset": "16:53"
+          },
+          {
+            "date": "2026-10-29",
+            "max": 22,
+            "min": 15,
+            "rain": 8,
+            "condition": "partly",
+            "sunrise": "05:52",
+            "sunset": "16:52"
+          },
+          {
+            "date": "2026-10-30",
+            "max": 20,
+            "min": 13,
+            "rain": 3,
+            "condition": "partly",
+            "sunrise": "05:53",
+            "sunset": "16:51"
+          },
+          {
+            "date": "2026-10-31",
+            "max": 22,
+            "min": 12,
+            "rain": 3,
+            "condition": "cloudy",
+            "sunrise": "05:54",
+            "sunset": "16:50"
+          }
+        ]
+      },
+      {
+        "name": "תל אביב",
+        "days": [
+          {
+            "date": "2026-10-25",
+            "max": 27,
+            "min": 20,
+            "rain": 0,
+            "condition": "fog",
+            "sunrise": "05:51",
+            "sunset": "16:57"
+          },
+          {
+            "date": "2026-10-26",
+            "max": 29,
+            "min": 20,
+            "rain": 10,
+            "condition": "cloudy",
+            "sunrise": "05:52",
+            "sunset": "16:56"
+          },
+          {
+            "date": "2026-10-27",
+            "max": 26,
+            "min": 20,
+            "rain": 38,
+            "condition": "showers",
+            "sunrise": "05:53",
+            "sunset": "16:55"
+          },
+          {
+            "date": "2026-10-28",
+            "max": 26,
+            "min": 19,
+            "rain": 31,
+            "condition": "cloudy",
+            "sunrise": "05:53",
+            "sunset": "16:54"
+          },
+          {
+            "date": "2026-10-29",
+            "max": 25,
+            "min": 19,
+            "rain": 50,
+            "condition": "cloudy",
+            "sunrise": "05:54",
+            "sunset": "16:53"
+          },
+          {
+            "date": "2026-10-30",
+            "max": 23,
+            "min": 19,
+            "rain": 45,
+            "condition": "showers",
+            "sunrise": "05:55",
+            "sunset": "16:52"
+          },
+          {
+            "date": "2026-10-31",
+            "max": 25,
+            "min": 17,
+            "rain": 33,
+            "condition": "cloudy",
+            "sunrise": "05:56",
+            "sunset": "16:51"
+          }
+        ]
+      },
+      {
+        "name": "חיפה",
+        "days": [
+          {
+            "date": "2026-10-25",
+            "max": 26,
+            "min": 21,
+            "rain": 0,
+            "condition": "partly",
+            "sunrise": "05:51",
+            "sunset": "16:55"
+          },
+          {
+            "date": "2026-10-26",
+            "max": 27,
+            "min": 21,
+            "rain": 13,
+            "condition": "fog",
+            "sunrise": "05:52",
+            "sunset": "16:54"
+          },
+          {
+            "date": "2026-10-27",
+            "max": 24,
+            "min": 19,
+            "rain": 35,
+            "condition": "showers",
+            "sunrise": "05:53",
+            "sunset": "16:53"
+          },
+          {
+            "date": "2026-10-28",
+            "max": 24,
+            "min": 19,
+            "rain": 39,
+            "condition": "cloudy",
+            "sunrise": "05:54",
+            "sunset": "16:53"
+          },
+          {
+            "date": "2026-10-29",
+            "max": 21,
+            "min": 18,
+            "rain": 68,
+            "condition": "showers",
+            "sunrise": "05:54",
+            "sunset": "16:52"
+          },
+          {
+            "date": "2026-10-30",
+            "max": 19,
+            "min": 17,
+            "rain": 55,
+            "condition": "showers",
+            "sunrise": "05:55",
+            "sunset": "16:51"
+          },
+          {
+            "date": "2026-10-31",
+            "max": 23,
+            "min": 15,
+            "rain": 30,
+            "condition": "fog",
+            "sunrise": "05:56",
+            "sunset": "16:50"
+          }
+        ]
+      },
+      {
+        "name": "באר שבע",
+        "days": [
+          {
+            "date": "2026-10-25",
+            "max": 28,
+            "min": 19,
+            "rain": 0,
+            "condition": "cloudy",
+            "sunrise": "05:50",
+            "sunset": "16:58"
+          },
+          {
+            "date": "2026-10-26",
+            "max": 30,
+            "min": 17,
+            "rain": 5,
+            "condition": "fog",
+            "sunrise": "05:51",
+            "sunset": "16:57"
+          },
+          {
+            "date": "2026-10-27",
+            "max": 26,
+            "min": 19,
+            "rain": 48,
+            "condition": "fog",
+            "sunrise": "05:52",
+            "sunset": "16:56"
+          },
+          {
+            "date": "2026-10-28",
+            "max": 24,
+            "min": 18,
+            "rain": 30,
+            "condition": "showers",
+            "sunrise": "05:53",
+            "sunset": "16:55"
+          },
+          {
+            "date": "2026-10-29",
+            "max": 26,
+            "min": 17,
+            "rain": 11,
+            "condition": "partly",
+            "sunrise": "05:54",
+            "sunset": "16:54"
+          },
+          {
+            "date": "2026-10-30",
+            "max": 24,
+            "min": 15,
+            "rain": 11,
+            "condition": "partly",
+            "sunrise": "05:54",
+            "sunset": "16:54"
+          },
+          {
+            "date": "2026-10-31",
+            "max": 25,
+            "min": 13,
+            "rain": 3,
+            "condition": "cloudy",
+            "sunrise": "05:55",
+            "sunset": "16:53"
+          }
+        ]
+      },
+      {
+        "name": "טבריה",
+        "days": [
+          {
+            "date": "2026-10-25",
+            "max": 34,
+            "min": 23,
+            "rain": 0,
+            "condition": "partly",
+            "sunrise": "05:49",
+            "sunset": "16:53"
+          },
+          {
+            "date": "2026-10-26",
+            "max": 32,
+            "min": 23,
+            "rain": 5,
+            "condition": "cloudy",
+            "sunrise": "05:50",
+            "sunset": "16:52"
+          },
+          {
+            "date": "2026-10-27",
+            "max": 31,
+            "min": 24,
+            "rain": 15,
+            "condition": "cloudy",
+            "sunrise": "05:51",
+            "sunset": "16:51"
+          },
+          {
+            "date": "2026-10-28",
+            "max": 28,
+            "min": 22,
+            "rain": 33,
+            "condition": "showers",
+            "sunrise": "05:52",
+            "sunset": "16:50"
+          },
+          {
+            "date": "2026-10-29",
+            "max": 26,
+            "min": 20,
+            "rain": 38,
+            "condition": "showers",
+            "sunrise": "05:53",
+            "sunset": "16:49"
+          },
+          {
+            "date": "2026-10-30",
+            "max": 24,
+            "min": 20,
+            "rain": 25,
+            "condition": "cloudy",
+            "sunrise": "05:53",
+            "sunset": "16:49"
+          },
+          {
+            "date": "2026-10-31",
+            "max": 27,
+            "min": 20,
+            "rain": 12,
+            "condition": "cloudy",
+            "sunrise": "05:54",
+            "sunset": "16:48"
+          }
+        ]
+      },
+      {
+        "name": "אילת",
+        "days": [
+          {
+            "date": "2026-10-25",
+            "max": 32,
+            "min": 25,
+            "rain": 0,
+            "condition": "cloudy",
+            "sunrise": "05:48",
+            "sunset": "16:59"
+          },
+          {
+            "date": "2026-10-26",
+            "max": 33,
+            "min": 24,
+            "rain": 5,
+            "condition": "cloudy",
+            "sunrise": "05:48",
+            "sunset": "16:58"
+          },
+          {
+            "date": "2026-10-27",
+            "max": 30,
+            "min": 23,
+            "rain": 33,
+            "condition": "showers",
+            "sunrise": "05:49",
+            "sunset": "16:57"
+          },
+          {
+            "date": "2026-10-28",
+            "max": 29,
+            "min": 23,
+            "rain": 13,
+            "condition": "showers",
+            "sunrise": "05:50",
+            "sunset": "16:57"
+          },
+          {
+            "date": "2026-10-29",
+            "max": 29,
+            "min": 22,
+            "rain": 6,
+            "condition": "partly",
+            "sunrise": "05:50",
+            "sunset": "16:56"
+          },
+          {
+            "date": "2026-10-30",
+            "max": 27,
+            "min": 19,
+            "rain": 1,
+            "condition": "partly",
+            "sunrise": "05:51",
+            "sunset": "16:55"
+          },
+          {
+            "date": "2026-10-31",
+            "max": 27,
+            "min": 19,
+            "rain": 0,
+            "condition": "cloudy",
+            "sunrise": "05:52",
+            "sunset": "16:54"
+          }
+        ]
+      }
+    ]
+  },
+  "rates": {
+    "source": "בנק ישראל",
+    "rates": [
+      {
+        "code": "USD",
+        "rate": 3.112,
+        "change": 0.005,
+        "as_of": "2026-10-23"
+      },
+      {
+        "code": "EUR",
+        "rate": 3.4844,
+        "change": 0.0028,
+        "as_of": "2026-10-23"
+      }
+    ]
+  }
+}
