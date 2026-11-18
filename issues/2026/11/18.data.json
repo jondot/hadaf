@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-18",
+  "fetched_at": "2026-11-18T13:06:28+00:00",
+  "errors": [
+    "weather: URLError: <urlopen error _ssl.c:994: The handshake operation timed out>"
+  ],
+  "rates": {
+    "source": "ECB",
+    "rates": [
+      {
+        "code": "USD",
+        "rate": 3.2463,
+        "change": 0.0223,
+        "as_of": "2026-11-17"
+      },
+      {
+        "code": "EUR",
+        "rate": 3.5674,
+        "change": 0.0165,
+        "as_of": "2026-11-17"
+      }
+    ]
+  }
+}
